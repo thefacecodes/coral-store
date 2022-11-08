@@ -1,0 +1,72 @@
+{
+    "store": [
+      {
+        "id": "1",
+        "price": 3500,
+        "name": "Slippers Shoe",
+        "image": "BLACK.png",
+        "ratings": 3,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
+      },
+      {
+        "id": "2",
+        "price": 18000,
+        "name": "Floral Shirt",
+        "image": "duffle.png",
+        "ratings": 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
+      },
+      {
+        "id": "3",
+        "price": 16000,
+        "name": "Men's Shirt",
+        "image": "irene.jpg",
+        "ratings": 4,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
+      },
+      {
+        "id": "4",
+        "price": 15000,
+        "name": "Flower Shirt",
+        "image": "pink.png",
+        "ratings": 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
+      }
+      
+    ],
+    "hot": [
+      {
+        "id": "5",
+        "price": 23000,
+        "name": "Blue Floral",
+        "image": "laura.jpg",
+        "ratings": 4,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
+      },
+      {
+        "id": "6",
+        "price": 22000,
+        "name": "Multicolor Shirt",
+        "image": "laura-1.jpg",
+        "ratings": 4,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
+      },
+      {
+        "id": "2",
+        "price": 15000,
+        "name": "Flower Shirt",
+        "image": "creative.png",
+        "ratings": 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
+      }
+      ,
+      {
+        "id": "2",
+        "price": 15000,
+        "name": "Flower Shirt",
+        "image": "louis.png",
+        "ratings": 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
+      }
+    ]
+  }

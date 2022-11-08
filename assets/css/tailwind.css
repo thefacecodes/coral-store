@@ -1,0 +1,68 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+
+body {
+    @apply font-p
+} */
+
+nav {
+    @apply p-4 flex-col md:flex-row
+}
+
+nav, nav div {
+    @apply flex  items-center gap-8 justify-between
+}
+
+nav form {
+    @apply bg-[#F1F1F1] flex items-center p-2 gap-2 text-black w-[300px] rounded
+}
+
+nav form input {
+    @apply bg-none bg-transparent text-sm text-black w-full border-none outline-none
+}
+
+.banner {
+    @apply h-[100vh] bg-[url("~/assets/images/banner.png")] bg-no-repeat rounded-3xl flex items-center bg-cover overflow-hidden relative
+}
+
+.banner p {
+    @apply text-base text-justify leading-7
+}
+
+.hero-text {
+    @apply p-8 md:p-12 lg:p-16 w-full md:w-3/4 lg:w-1/2 bg-white bg-opacity-40 absolute text-[#1B4B66] -right-10 rounded-3xl backdrop-blur
+} 
+
+.hero-text h1 {
+    @apply text-[60px] font-semibold
+}
+
+.hero-text p {
+    @apply text-[28px] my-8 font-medium
+}
+
+.hero-text button {
+    @apply bg-[#1B4B66] text-white rounded-xl py-2 px-8 text-[16px]
+}
+
+.arrival {
+    @apply p-8
+}
+
+.arrival .top {
+    @apply flex justify-between items-center
+}
+
+.arrival .top h2 {
+    @apply text-[34px] font-semibold
+}
+
+.arrival .top p {
+    @apply text-[14px] font-semibold text-[#1B4B66]
+}
