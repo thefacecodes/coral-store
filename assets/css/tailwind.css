@@ -40,7 +40,7 @@ nav form input {
 } 
 
 .hero-text h1 {
-    @apply text-[60px] font-semibold
+    @apply text-[60px] font-bold
 }
 
 .hero-text p {
@@ -65,4 +65,108 @@ nav form input {
 
 .arrival .top p {
     @apply text-[14px] font-semibold text-[#1B4B66]
+}
+
+.product {
+    @apply w-1/4
+}
+
+.product img {
+    @apply w-full rounded
+}
+
+.product p {
+    @apply text-[14px] text-[#626262] mb-2
+}
+
+.product h4 {
+    @apply font-bold
+}
+
+.product .price-favorite {
+    @apply flex justify-between items-center my-2 text-[16px] font-medium
+}
+
+.product-container {
+    @apply flex gap-8 mt-8
+}
+
+.handpick {
+    @apply bg-[#1B4B66] p-8
+}
+
+.handpick h2 {
+    @apply text-[34px] font-bold mb-8 text-white
+}
+
+.handpick .category {
+    @apply flex gap-8
+}
+
+.handpick .category div {
+    @apply w-1/4 relative
+}
+
+.handpick .category div img {
+    @apply w-full h-full
+}
+
+.handpick .category div h4 {
+    @apply absolute bottom-0 p-4 bg-[rgba(0,0,0,0.5)] w-full text-[24px] text-white font-bold
+}
+
+.brands {
+    @apply p-8
+}
+
+.brands h2 {
+   @apply text-[34px] font-bold mb-8
+}
+
+.brands .brand-container {
+    @apply flex justify-between items-center
+}
+
+.brands .banner-2 {
+    @apply my-8 w-full
+}
+
+.cta {
+    @apply flex gap-6
+}
+
+.cta img {
+    @apply w-1/2
+}
+
+footer {
+    @apply p-16 bg-[#1B4B66] flex justify-between items-start text-[#B6B6B6] 
+}
+
+footer div {
+    @apply w-1/2
+}
+
+footer .links {
+    @apply flex justify-between text-[16px]
+}
+
+footer .socials {
+    @apply  flex flex-col justify-end items-end text-right
+}
+
+footer .socials section {
+    @apply flex gap-4
+}
+
+footer .links h6 {
+    @apply text-white mb-4
+}
+
+footer .links li {
+    @apply mb-2
+}
+
+p.location {
+    @apply flex items-center gap-2 text-white my-4
 }

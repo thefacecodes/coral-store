@@ -1,4 +1,8 @@
-# Coral Store - Nuxt JS
+# Coral Store - Nuxt JS App
+
+## Screenshot
+
+![](./assets/images/screenshot.png)
 
 ## Build Setup
 

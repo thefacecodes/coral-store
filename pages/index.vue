@@ -12,12 +12,28 @@
         <h2>New Arrival</h2>
         <p>View all &#062;</p>
       </div>
-      <div v-for="item in store" :key="item.id">
-        <!-- <h3>{{item.id}}</h3> -->
-         <Product :product="item" />
+      <div class="product-container">
+         <Product v-for="item in store" :key="item.id" :product="item" />
       </div>
-     
+    </div> 
+    <HandPick />
+    <div class="brands">
+      <h2>Shop by Brands</h2>
+      <div class="brand-container">
+        <img src="~/assets/images/block.png" alt="">
+        <img src="~/assets/images/block-1.png" alt="">
+        <img src="~/assets/images/block-2.png" alt="">
+        <img src="~/assets/images/block-3.png" alt="">
+        <img src="~/assets/images/block-4.png" alt="">
+        <img src="~/assets/images/block-5.png" alt="">
+      </div>
+       <img class="banner-2" src="~/assets/images/hero.png" alt="">
+       <div class="cta">
+        <img src="~/assets/images/skincare.png" alt="">
+        <img src="~/assets/images/facepacks.png" alt="">
+       </div>
     </div>
+   
   </div>
 </template>
 
