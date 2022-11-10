@@ -28,7 +28,7 @@ nav form input {
 }
 
 .banner {
-    @apply h-[100vh] bg-[url("~/assets/images/banner.png")] bg-no-repeat rounded-3xl flex items-center bg-cover overflow-hidden relative
+    @apply h-[60vh] md:h-[75vh] lg:h-[100vh] bg-[url("~/assets/images/banner.png")] bg-no-repeat rounded-3xl flex items-center bg-cover overflow-hidden relative
 }
 
 .banner p {
@@ -36,15 +36,15 @@ nav form input {
 }
 
 .hero-text {
-    @apply p-8 md:p-12 lg:p-16 w-full md:w-3/4 lg:w-1/2 bg-white bg-opacity-40 absolute text-[#1B4B66] -right-10 rounded-3xl backdrop-blur
+    @apply p-4 md:p-8 flex items-start flex-col justify-center lg:p-16 h-[75%] lg:h-auto w-full md:w-3/4 lg:w-1/2 bg-white bg-opacity-40 absolute text-[#1B4B66] -right-10 rounded-3xl backdrop-blur
 } 
 
 .hero-text h1 {
-    @apply text-[60px] font-bold
+    @apply text-[40px] md:text-[45px] lg:text-[60px] font-bold
 }
 
 .hero-text p {
-    @apply text-[28px] my-8 font-medium
+    @apply text-[28px] my-4 lg:my-8 font-medium
 }
 
 .hero-text button {
@@ -52,7 +52,7 @@ nav form input {
 }
 
 .arrival {
-    @apply p-8
+    @apply p-4 lg:p-8
 }
 
 .arrival .top {
@@ -68,11 +68,11 @@ nav form input {
 }
 
 .product {
-    @apply w-[23%]
+    @apply w-[46vw] md:w-[31%] lg:w-[23%]
 }
 
 .product img {
-    @apply w-full rounded h-[300px]
+    @apply w-full rounded h-[200px] md:h-[250px] lg:h-[300px]
 }
 
 .product p {
@@ -92,11 +92,11 @@ button.add-to-cart {
 }
 
 .product-container {
-    @apply flex gap-8 mt-8
+    @apply inline-flex md:flex gap-4 lg:gap-8 mt-8
 }
 
 .handpick {
-    @apply bg-[#1B4B66] p-8
+    @apply bg-[#1B4B66] p-4 lg:p-8
 }
 
 .handpick h2 {
@@ -104,11 +104,11 @@ button.add-to-cart {
 }
 
 .handpick .category {
-    @apply flex gap-8
+    @apply flex flex-wrap gap-4 lg:gap-8
 }
 
 .handpick .category div {
-    @apply w-1/4 relative
+    @apply w-[47%] lg:w-[23%] relative
 }
 
 .handpick .category div img {
@@ -116,19 +116,29 @@ button.add-to-cart {
 }
 
 .handpick .category div h4 {
-    @apply absolute bottom-0 p-4 bg-[rgba(0,0,0,0.5)] w-full text-[24px] text-white font-bold
+    @apply absolute bottom-0 p-2 md:p-4 bg-[rgba(0,0,0,0.5)] w-full text-[18px] md:text-[24px] text-white font-bold
 }
 
 .brands {
-    @apply p-8
+    @apply p-4 md:p-8
 }
 
 .brands h2 {
    @apply text-[34px] font-bold mb-8
 }
 
+.wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    @apply overflow-x-scroll
+}
+
 .brands .brand-container {
-    @apply flex justify-between items-center
+    @apply inline-flex gap-2  lg:flex justify-between items-center
 }
 
 .brands .banner-2 {
@@ -136,27 +146,27 @@ button.add-to-cart {
 }
 
 .cta {
-    @apply flex gap-6
+    @apply flex gap-2 md:gap-4 lg:gap-6
 }
 
 .cta img {
-    @apply w-1/2
+    @apply w-[48%]
 }
 
 footer {
-    @apply p-16 bg-[#1B4B66] flex justify-between items-start text-[#B6B6B6] 
+    @apply p-4 md:p-8 lg:p-16 bg-[#1B4B66] flex gap-4 flex-col md:flex-row justify-between items-start text-[#B6B6B6] 
 }
 
 footer div {
-    @apply w-1/2
+    @apply w-full md:w-1/2
 }
 
 footer .links {
-    @apply flex justify-between text-[16px]
+    @apply flex flex-col md:flex-row gap-4 justify-between text-[16px]
 }
 
 footer .socials {
-    @apply  flex flex-col justify-end items-end text-right
+    @apply  flex flex-col justify-start md:justify-end items-start md:items-end text-right
 }
 
 footer .socials section {
@@ -176,19 +186,19 @@ p.location {
 }
 
 .store {
-    @apply p-8
+    @apply p-2 md:p-4 lg:p-8
 }
 
-.store h1 {
+.store h1, .cart h1 {
     @apply text-[34px] font-bold my-8
 }
 
 .store-container {
-    @apply flex flex-wrap gap-8
+    @apply flex flex-wrap gap-2 md:gap-4 lg:gap-8
 }
 
 .store .pagination {
-    @apply mt-12 flex gap-8 justify-center items-center
+    @apply mt-12 flex gap-4 md:gap-8 justify-center items-center
 }
 
 .store .pagination button {
@@ -201,4 +211,8 @@ p.location {
 
 .store .pagination button:last-child {
     @apply rounded-r-lg
+}
+
+.cart {
+    @apply p-8
 }

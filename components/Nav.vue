@@ -3,20 +3,11 @@
 <nav>
   <div>
      <img src="/logo.png" alt="">
-  
-      <nuxt-link to="/">Handbags</nuxt-link>
-
-  
-      <nuxt-link to="/about">Watches</nuxt-link>
-
-  
-      <nuxt-link to="/">Skincare</nuxt-link>
-
-  
-      <nuxt-link to="/">Jewellerys</nuxt-link>
-
-  
-      <nuxt-link to="/">Apparels</nuxt-link>
+     <nuxt-link to="/">Handbags</nuxt-link>
+<nuxt-link to="/about">Watches</nuxt-link>
+<nuxt-link to="/">Skincare</nuxt-link>
+<nuxt-link to="/">Jewellerys</nuxt-link>
+<nuxt-link to="/">Apparels</nuxt-link>
   </div>
   <div>
     <form>
@@ -24,7 +15,7 @@
       <input type="search" name="search" id="search" placeholder="Search for products or brands.....">
     </form>
     <i class="fa-regular fa-heart"></i>
-    <i class="fa-solid fa-bag-shopping"></i>
+    <i @click="$router.push('/cart')" class="fa-solid fa-bag-shopping"></i>
     <i class="fa-regular fa-user"></i>
 
   </div>

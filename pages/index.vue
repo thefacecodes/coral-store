@@ -10,16 +10,20 @@
     <div class="arrival">
       <div class="top">
         <h2>New Arrival</h2>
-        <p>View all &#062;</p>
+        <nuxt-link to="/store"><p>View all &#062;</p></nuxt-link>
       </div>
-      <div class="product-container">
+      <div class="wrapper">
+           <div class="product-container">
          <Product v-for="item in store" :key="item.id" :product="item" />
       </div>
+      </div>
+   
     </div> 
     <HandPick />
     <div class="brands">
       <h2>Shop by Brands</h2>
-      <div class="brand-container">
+      <div class="wrapper">
+           <div class="brand-container">
         <img src="~/assets/images/block.png" alt="">
         <img src="~/assets/images/block-1.png" alt="">
         <img src="~/assets/images/block-2.png" alt="">
@@ -27,6 +31,8 @@
         <img src="~/assets/images/block-4.png" alt="">
         <img src="~/assets/images/block-5.png" alt="">
       </div>
+      </div>
+   
        <img class="banner-2" src="~/assets/images/hero.png" alt="">
        <div class="cta">
         <img src="~/assets/images/skincare.png" alt="">
@@ -48,6 +54,11 @@ export default {
   },
   mounted() {
     console.log(this.store);
+  },
+  head() {
+    return {
+      title: "Cora'l Store"
+    }
   }
 };
 </script>
