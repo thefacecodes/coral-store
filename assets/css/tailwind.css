@@ -72,7 +72,7 @@ nav form input {
 }
 
 .product img {
-    @apply w-full rounded h-[300px] shadow
+    @apply w-full rounded h-[300px]
 }
 
 .product p {
