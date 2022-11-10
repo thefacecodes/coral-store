@@ -43,6 +43,20 @@ import products from "../assets/products.json"
         reduceSkipandLimit(state, add) {
             state.skip = state.skip - add
 
+        },
+
+        addToCart(state, item) {
+            const inBag = state.bag.find(product => product.id === item.id)
+            if(inBag) {
+                inBag.quantity ++;
+            } else {
+               item.quantity = 1
+            state.bag = [...state.bag, item]
+            }
+        },
+
+        removeFromCart(state, item) {
+            state.bag = state.bag.filter(product => product.id !== item.id)          
         }
     }
 
@@ -73,7 +87,16 @@ import products from "../assets/products.json"
             .then(data => {
                 commit('updatePageProducts', data.products)
             })
-      }
+      },
+
+      addToCart({commit}, item) {
+        commit('addToCart', item)
+    },
+
+    removeFromCart({commit}, item) {
+        commit('removeFromCart', item)
+    }
+
     }
 
     export const modules = {

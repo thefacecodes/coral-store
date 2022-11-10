@@ -146,11 +146,11 @@ button.add-to-cart {
 }
 
 .cta {
-    @apply flex gap-2 md:gap-4 lg:gap-6
+    @apply flex flex-col lg:flex-row gap-2 md:gap-4 lg:gap-6
 }
 
 .cta img {
-    @apply w-[48%]
+    @apply w-full lg:w-[48%]
 }
 
 footer {
@@ -215,4 +215,56 @@ p.location {
 
 .cart {
     @apply p-8
+}
+
+.cart table {
+    @apply w-3/5 border-2
+}
+
+.cart table th, .cart table tr {
+    @apply w-full border-b-2
+}
+
+table td {
+    @apply w-1/5 border-b-2 p-2 text-center
+}
+
+table tr td:first-child {
+    @apply w-2/5
+}
+
+table td .cart-item {
+    @apply w-full flex gap-2 items-center
+}
+
+table td .cart-item h4 {
+    @apply font-medium
+}
+
+table td .cart-item img, table td .cart-item div {
+    @apply w-1/2
+}
+
+.cart .container {
+    @apply flex gap-4 items-start
+}
+
+.cart .order {
+    @apply w-2/5
+}
+
+.cart .order div {
+    @apply flex justify-between items-center my-4 p-2
+}
+
+.cart .order div button {
+    @apply w-[45%] py-2 rounded border-2 border-[#1B4B66] font-semibold
+}
+
+.cart .order h2, .cart .order div h3 {
+    @apply font-semibold
+}
+
+.cart .order h2 {
+    @apply shadow p-2
 }

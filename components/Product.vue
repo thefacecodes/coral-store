@@ -8,7 +8,7 @@
       <p>{{product.name ? product.name : product.title}}</p>
      
       <h4>${{product.price.toFixed(2)}}</h4>
-      <button class="add-to-cart">Add to Cart</button>
+      <button @click="$store.dispatch('addToCart', product)" class="add-to-cart">Add to Cart</button>
   </div>
 </template>
 
