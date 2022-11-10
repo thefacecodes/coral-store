@@ -68,15 +68,19 @@ nav form input {
 }
 
 .product {
-    @apply w-1/4
+    @apply w-[23%]
 }
 
 .product img {
-    @apply w-full rounded
+    @apply w-full rounded h-[300px] shadow
 }
 
 .product p {
     @apply text-[14px] text-[#626262] mb-2
+}
+
+button.add-to-cart {
+    @apply w-full py-4 bg-[#1B4B66] text-white mt-2 rounded
 }
 
 .product h4 {
@@ -169,4 +173,32 @@ footer .links li {
 
 p.location {
     @apply flex items-center gap-2 text-white my-4
+}
+
+.store {
+    @apply p-8
+}
+
+.store h1 {
+    @apply text-[34px] font-bold my-8
+}
+
+.store-container {
+    @apply flex flex-wrap gap-8
+}
+
+.store .pagination {
+    @apply mt-12 flex gap-8 justify-center items-center
+}
+
+.store .pagination button {
+    @apply py-4 px-8 text-white bg-[#1B4B66]
+}
+
+.store .pagination button:first-child {
+    @apply rounded-l-lg
+}
+
+.store .pagination button:last-child {
+    @apply rounded-r-lg
 }

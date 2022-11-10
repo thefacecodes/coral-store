@@ -1,7 +1,7 @@
 {
     "store": [
   {
-        "id": "1",
+        "id": "store-1",
         "price": 39.49,
         "brand": "Grande",
         "image": "pink.png",
@@ -9,7 +9,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
       },
       {
-        "id": "2",
+        "id": "store-2",
         "price": 54.69,
         "brand": "Coach",
         "image": "duffle.png",
@@ -17,7 +17,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
       },
       {
-        "id": "3",
+        "id": "store-3",
         "price": 57,
         "brand": "Remus",
         "image": "irene.png",
@@ -25,7 +25,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. In est cumque nemo mollitia? Asperiores molestiae voluptas illum, minus tempore similique ea beatae odio quas quo reprehenderit nihil doloribus atque vitae id. Cupiditate corrupti doloribus quisquam? Qui blanditiis error veritatis tempore quo sint facilis quisquam tenetur officiis minima? Cumque, mollitia dolore."
       },    
       {
-        "id": "4",
+        "id": "store-4",
         "price": 56.49,
         "brand": "Boujee",
         "image": "BLACK.png",
