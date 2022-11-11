@@ -217,12 +217,19 @@ p.location {
     @apply p-4 lg:p-8
 }
 
+.table-container::-webkit-scrollbar {
+    display: none;
+}
+
+
 .table-container {
-    @apply overflow-x-scroll
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    @apply overflow-x-scroll w-full lg:lg:w-3/5
 }
 
 .cart table {
-    @apply w-[150%] lg:w-3/5 border-2
+    @apply w-[150%] lg:w-full border-2
 }
 
 .cart table th, .cart table tr {
