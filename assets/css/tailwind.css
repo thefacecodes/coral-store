@@ -214,11 +214,15 @@ p.location {
 }
 
 .cart {
-    @apply p-8
+    @apply p-4 lg:p-8
+}
+
+.table-container {
+    @apply overflow-x-scroll
 }
 
 .cart table {
-    @apply w-3/5 border-2
+    @apply w-[150%] lg:w-3/5 border-2
 }
 
 .cart table th, .cart table tr {
@@ -246,11 +250,11 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .cart .container {
-    @apply flex gap-4 items-start
+    @apply flex flex-col gap-4 items-start lg:flex-row
 }
 
 .cart .order {
-    @apply w-2/5
+    @apply w-full lg:w-2/5
 }
 
 .cart .order div {
@@ -267,4 +271,12 @@ table td .cart-item img, table td .cart-item div {
 
 .cart .order h2 {
     @apply shadow p-2
+}
+
+.modal {
+    @apply bg-black p-4 text-white fixed top-0 w-screen text-center transition-transform duration-1000
+}
+
+.modal h1 {
+    @apply uppercase font-semibold mb-2
 }

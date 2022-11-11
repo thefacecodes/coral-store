@@ -2,8 +2,8 @@
   <div class="cart">
     <h1>My Cart</h1>
    <div class="container">
-
-    <table>
+<div class="table-container">
+     <table>
         <tr class="font-bold">
             <td>Product</td>
             <td>Price</td>
@@ -35,6 +35,8 @@
         </tr>
 
     </table>
+</div>
+ 
     <div class="order">
       <h2>Order Summary</h2>
       <div>
