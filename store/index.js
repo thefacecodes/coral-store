@@ -57,6 +57,16 @@ import products from "../assets/products.json"
 
         removeFromCart(state, item) {
             state.bag = state.bag.filter(product => product.id !== item.id)          
+        },
+
+        increaseQuantity(state, item) {
+            console.log(item);
+            console.log(item.quantity);
+            const inCart= state.bag.find(cartitem => cartitem.id === item.id)
+              console.log(inCart.quantity);
+              inCart.quantity++
+              console.log(inCart.quantity);
+
         }
     }
 
@@ -95,6 +105,11 @@ import products from "../assets/products.json"
 
     removeFromCart({commit}, item) {
         commit('removeFromCart', item)
+    },
+
+    increaseQuantity({state, commit}, item) {
+        // const cartitem = state.bag.find(product => product.id === item.id)
+        commit('increaseQuantity', item)
     }
 
     }

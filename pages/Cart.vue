@@ -25,6 +25,10 @@
             <td>{{product.quantity}}</td>
             <td>${{product.price * product.quantity}}</td>
             <td>
+              <button @click="$store.dispatch('decreaseQuantity', product)" class="text-[#B00020] shadow p-4">&#8211;</button>
+              <button @click="$store.dispatch('increaseQuantity', product)" class="text-[#1B4B66] shadow p-4">&#43;</button>
+            </td>
+            <td>
               <button @click="$store.dispatch('removeFromCart', product)" class="text-[#B00020] shadow p-4"><i class="fa-solid fa-trash"></i></button>
               <button class="text-[#1B4B66] shadow p-4"><i class="fa-solid fa-heart"></i></button>
             </td>
@@ -60,6 +64,12 @@
 
 <script>
 export default {
+  computed: {
+    cartUpdate() {
+      return this.$store.state.bag
+    }
+    
+  }
 
 }
 </script>

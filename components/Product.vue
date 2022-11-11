@@ -9,6 +9,7 @@
      
       <h4>${{product.price.toFixed(2)}}</h4>
       <button @click="$store.dispatch('addToCart', product)" class="add-to-cart">Add to Cart</button>
+      <button v-if="product.quantity in $store.state.bag >=1">{{product.quantity}}</button>
   </div>
 </template>
 
