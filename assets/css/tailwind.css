@@ -317,7 +317,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .each-product .image-section img.thumbnail {
-    @apply w-full h-auto lg:h-[500px] rounded-3xl
+    @apply w-full h-[350px] lg:h-[500px] rounded-3xl
 }
 
 
@@ -332,7 +332,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .image-section .image-slider img {
-    @apply w-[150px] h-auto rounded-none
+    @apply w-[150px] h-[100px] lg:h-auto rounded-none
 }
 
 .details-section {
@@ -352,15 +352,15 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .details-section .prices {
-    @apply flex gap-8 items-center py-4 border-y-4 mt-2
+    @apply flex gap-6 lg:gap-8 items-center py-4 border-y-4 mt-2
 }
 
 .details-section .prices h4 {
-    @apply text-[40px] font-bold 
+    @apply text-[30px] lg:text-[40px] font-bold 
 }
 
 .details-section .prices h5 {
-    @apply text-[34px] font-semibold text-[#B6B6B6]
+    @apply text-[26px] lg:text-[34px] font-semibold text-[#B6B6B6]
 }
 
 .details-section p.description {
