@@ -12,26 +12,28 @@
             <td>Quantity</td>
             <td>Total</td>
         </tr>
-        <tr v-for="product in $store.state.bag" :key="product.id">
+        <tr v-for="product in cartUpdate" :key="product.id">
             <td>
+              <nuxt-link :to="'/store/' + product.id">
               <div class="cart-item">
                 <img :src="product.image ? require(`~/assets/images/${product.image}`) : product.thumbnail" alt="">
                 <div>
                   <h4>{{product.brand}}</h4>
-                <p class="text-[#626262]">{{product.title}}</p>
+                <p class="text-[#626262]">{{product.title ? product.title : product.name}}</p>
                 </div>
                 
               </div>
+              </nuxt-link>
               </td>
             <td>${{product.price}}</td>
             <td>{{product.quantity}}</td>
-            <td>${{product.price * product.quantity}}</td>
+            <td>${{(product.price * product.quantity).toFixed(2)}}</td>
             <td>
-              <button @click="$store.dispatch('decreaseQuantity', product)" class="text-[#B00020] shadow p-4">&#8211;</button>
-              <button @click="product.quantity++" class="text-[#1B4B66] shadow p-4">&#43;</button>
+              <button :disabled="product.quantity<=1" @click="$store.commit('decreaseQuantity', product)" class="text-[#B00020] shadow p-4">&#8211;</button>
+              <button @click="$store.commit('addToCart', product)" class="text-[#1B4B66] shadow p-4">&#43;</button>
             </td>
             <td>
-              <button @click="$store.dispatch('removeFromCart', product)" class="text-[#B00020] shadow p-4"><i class="fa-solid fa-trash"></i></button>
+              <button @click="$store.commit('removeFromCart', product)" class="text-[#B00020] shadow p-4"><i class="fa-solid fa-trash"></i></button>
               <button class="text-[#1B4B66] shadow p-4"><i class="fa-solid fa-heart"></i></button>
             </td>
         </tr>
@@ -44,7 +46,7 @@
       <h2>Order Summary</h2>
       <div>
         <h3>Subtotal :</h3>
-        <h4>${{$store.getters.totalAmount}}</h4>
+        <h4>${{$store.getters.totalAmount.toFixed(2)}}</h4>
       </div>
       <div>
         <h3>Delivery fee</h3>
@@ -56,7 +58,7 @@
       </div>
       <div>
         <h3>Grand total</h3>
-        <h4>${{$store.getters.totalAmount}}</h4>
+        <h4>${{$store.getters.totalAmount.toFixed(2)}}</h4>
       </div>
       <div>
         <button class="bg-[#1B4B66] text-white">Place Order</button>

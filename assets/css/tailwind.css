@@ -95,6 +95,18 @@ button.add-to-cart {
     @apply inline-flex md:flex gap-4 lg:gap-8 mt-8
 }
 
+.product .manipulate {
+    @apply w-full flex mt-2 rounded overflow-hidden
+}
+
+.product .manipulate button {
+    @apply w-1/3 shadow py-4 text-[12px] lg:text-[16px] font-bold border-2 border-[#1B4B66] text-center
+}
+
+.product .manipulate button:nth-child(odd) {
+    @apply bg-[#1B4B66] text-white
+}
+
 .handpick {
     @apply bg-[#1B4B66] p-4 lg:p-8
 }
@@ -289,7 +301,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .product-details {
-    @apply p-8
+    @apply p-4 lg:p-8
 }
 
 .product-details h1 {
@@ -297,19 +309,38 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .each-product {
-    @apply flex gap-4
+    @apply flex flex-col lg:flex-row gap-2 lg:gap-4
 }
 
 .each-product .image-section, .each-product .details-section {
-    @apply w-1/2
+    @apply w-full lg:w-1/2
 }
 
-.each-product .image-section img {
-    @apply w-full h-[500px] rounded-3xl
+.each-product .image-section img.thumbnail {
+    @apply w-full h-auto lg:h-[500px] rounded-3xl
+}
+
+
+.image-section .image-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.image-section .image-slider {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    @apply w-full flex gap-2 justify-between max-h-[300px] mt-12 overflow-x-scroll
+}
+
+.image-section .image-slider img {
+    @apply w-[150px] h-auto rounded-none
+}
+
+.details-section {
+    @apply p-2 lg:p-8
 }
 
 .details-section h2 {
-    @apply text-[34px] font-semibold
+    @apply text-[34px] font-semibold uppercase
 }
 
 .details-section h3 {
@@ -317,11 +348,11 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .details-section p.ratings {
-    @apply my-6 flex items-center gap-2
+    @apply my-6 flex items-center gap-2 text-[20px]
 }
 
 .details-section .prices {
-    @apply flex gap-8 items-center
+    @apply flex gap-8 items-center py-4 border-y-4 mt-2
 }
 
 .details-section .prices h4 {
@@ -338,4 +369,29 @@ table td .cart-item img, table td .cart-item div {
 
 .details-section .prices h6 {
     @apply text-[20px] text-[#FF404B] font-semibold
+}
+
+.details-section .quantity {
+    @apply flex gap-2 items-center
+}
+
+.details-section .quantity button, .details-section .quantity input {
+    @apply text-[20px] h-[50px] w-[50px] shadow text-center
+}
+
+.details-section .quantity input::-webkit-outer-spin-button,
+.details-section .quantity input::-webkit-inner-spin-button {
+        @apply hidden
+      }
+
+.details-section .quantity h6 {
+    @apply text-[20px] font-medium
+}
+
+.details-section .ctas {
+    @apply flex gap-4 items-center mt-6
+}
+
+.details-section .ctas button {
+    @apply w-1/2 py-2 rounded border-2 border-[#1B4B66]
 }

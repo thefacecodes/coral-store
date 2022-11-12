@@ -50,7 +50,6 @@ import products from "../assets/products.json"
             if(inBag) {
                 inBag.quantity ++;
             } else {
-               item.quantity = 1
             state.bag = [...state.bag, item]
             }
         },
@@ -59,14 +58,9 @@ import products from "../assets/products.json"
             state.bag = state.bag.filter(product => product.id !== item.id)          
         },
 
-        increaseQuantity(state, cartitem) {
-            cartitem.quantity++
-            // console.log(item);
-            // console.log(item.quantity);
-            // const inCart= state.bag.find(cartitem => cartitem.id === item.id)
-            //   console.log(inCart.quantity);
-            //   inCart.quantity++
-            //   console.log(inCart.quantity);
+        decreaseQuantity(state, item) {
+            const inBag = state.bag.find(product => product.id === item.id)
+           inBag.quantity--
 
         }
     }
@@ -100,9 +94,6 @@ import products from "../assets/products.json"
             })
       },
 
-      addToCart({commit}, item) {
-        commit('addToCart', item)
-    },
 
     removeFromCart({commit}, item) {
         commit('removeFromCart', item)
