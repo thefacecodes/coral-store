@@ -4,6 +4,8 @@
    <div class="container">
 <div class="table-container">
      <table>
+      <tbody>
+    
         <tr class="font-bold">
             <td>Product</td>
             <td>Price</td>
@@ -13,7 +15,7 @@
         <tr v-for="product in $store.state.bag" :key="product.id">
             <td>
               <div class="cart-item">
-                <img :src="product.thumbnail" alt=""> 
+                <img :src="product.image ? require(`~/assets/images/${product.image}`) : product.thumbnail" alt="">
                 <div>
                   <h4>{{product.brand}}</h4>
                 <p class="text-[#626262]">{{product.title}}</p>
@@ -26,14 +28,15 @@
             <td>${{product.price * product.quantity}}</td>
             <td>
               <button @click="$store.dispatch('decreaseQuantity', product)" class="text-[#B00020] shadow p-4">&#8211;</button>
-              <button @click="$store.dispatch('increaseQuantity', product)" class="text-[#1B4B66] shadow p-4">&#43;</button>
+              <button @click="product.quantity++" class="text-[#1B4B66] shadow p-4">&#43;</button>
             </td>
             <td>
               <button @click="$store.dispatch('removeFromCart', product)" class="text-[#B00020] shadow p-4"><i class="fa-solid fa-trash"></i></button>
               <button class="text-[#1B4B66] shadow p-4"><i class="fa-solid fa-heart"></i></button>
             </td>
         </tr>
-
+    
+      </tbody>
     </table>
 </div>
  

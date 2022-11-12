@@ -31,7 +31,7 @@ import products from "../assets/products.json"
 
         
         productsList(state, newproduct) {
-            state.storeProducts = [...state.storeProducts, ...newproduct]
+            state.storeProducts = [...products.store, ...newproduct]
             console.log(state.storeProducts);
         },
 
@@ -59,13 +59,14 @@ import products from "../assets/products.json"
             state.bag = state.bag.filter(product => product.id !== item.id)          
         },
 
-        increaseQuantity(state, item) {
-            console.log(item);
-            console.log(item.quantity);
-            const inCart= state.bag.find(cartitem => cartitem.id === item.id)
-              console.log(inCart.quantity);
-              inCart.quantity++
-              console.log(inCart.quantity);
+        increaseQuantity(state, cartitem) {
+            cartitem.quantity++
+            // console.log(item);
+            // console.log(item.quantity);
+            // const inCart= state.bag.find(cartitem => cartitem.id === item.id)
+            //   console.log(inCart.quantity);
+            //   inCart.quantity++
+            //   console.log(inCart.quantity);
 
         }
     }
@@ -108,8 +109,9 @@ import products from "../assets/products.json"
     },
 
     increaseQuantity({state, commit}, item) {
-        // const cartitem = state.bag.find(product => product.id === item.id)
-        commit('increaseQuantity', item)
+        const cartitem = state.bag.find(product => product.id === item.id)
+        // cartitem.quantity++
+        commit('increaseQuantity', cartitem)
     }
 
     }
