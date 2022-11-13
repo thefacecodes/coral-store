@@ -61,7 +61,7 @@
         <h4>${{$store.getters.totalAmount.toFixed(2)}}</h4>
       </div>
       <div>
-        <button class="bg-[#1B4B66] text-white">Place Order</button>
+        <button @click="$router.push('/checkout')" class="bg-[#1B4B66] text-white">Place Order</button>
         <button @click="$router.push('/store')" class="text-[#1B4B66]">Continue Shopping</button>
       </div>
     </div>
