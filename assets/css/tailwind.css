@@ -395,3 +395,11 @@ table td .cart-item img, table td .cart-item div {
 .details-section .ctas button {
     @apply w-1/2 py-2 rounded border-2 border-[#1B4B66]
 }
+
+.checkout {
+    @apply p-8
+}
+
+.checkout h1 {
+    @apply text-[34px] text-[#1B4B66]
+}
