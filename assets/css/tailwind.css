@@ -403,3 +403,31 @@ table td .cart-item img, table td .cart-item div {
 .checkout h1 {
     @apply text-[34px] text-[#1B4B66]
 }
+
+.signin {
+    @apply p-8 flex flex-col items-center text-left text-[#1B4B66]
+}
+
+.signin h1 {
+    @apply text-[34px] font-semibold
+}
+
+.signin p {
+    @apply font-medium text-[18px]
+}
+
+.signin form {
+    @apply my-8 shadow p-4 w-1/3
+}
+
+.signin form .forminput {
+    @apply w-full bg-[#B6B6B6] h-[40px] my-4 rounded flex items-center px-2
+}
+
+.signin form .forminput input {
+    @apply bg-none bg-transparent outline-none h-full w-full text-[#1B4B66]
+}
+
+.signin form button {
+    @apply w-full text-white bg-[#1B4B66] font-normal py-2 rounded my-2
+}
