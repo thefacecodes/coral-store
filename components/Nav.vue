@@ -16,7 +16,7 @@
     </form>
     <i class="fa-regular fa-heart"></i>
     <i @click="$router.push('/cart')" class="fa-solid fa-bag-shopping"></i>
-    <i class="fa-regular fa-user"></i>
+    <nuxt-link to='/signin'><i class="fa-regular fa-user"></i></nuxt-link>
 
   </div>
  

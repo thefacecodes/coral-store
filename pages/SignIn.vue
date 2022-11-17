@@ -2,25 +2,42 @@
   <div class="signin">
     <h1>Sign in/Sign up</h1>
     <p>Log in or create an account</p>
-    <form @submit.prevent>
+    <form>
       <label for="email">Email</label>
       <div class="forminput">
-        <input type="email" name="email" id="email">
+        <input type="email" v-model="user.email" name="email" id="email">
       </div>
       <label for="password">Password</label>
       <div class="forminput">
-        <input type="password" name="password" placeholder="Enter password" id="password"> 
+        <input type="password" v-model="user.password" name="password" id="password"> 
         <i @click="(e) => showPassword(e)" class="fa-regular fa-eye"></i>
       </div>
-      <button type="submit">Login/Register</button>
+      <button type="submit" @click.prevent="(e) => $store.dispatch('LoginAccount' , user)">Login</button>
+      <button type="submit" @click.prevent="(e) => $store.dispatch('createAccount', user)">Register</button>
       <button><i class="fa-brands fa-google"></i> &nbsp; Sign in with Google</button>
     </form>
-    
+    <h3 v-if="$store.state.user">{{$store.state.user.email}}</h3>
   </div>
 </template>
 
 <script>
 export default {
+  data(){
+    return {
+      user: {
+        email: "",
+        password: "",
+      }
+      
+    }
+  },
+  created() {
+    this.$fire.auth.onAuthStateChanged(user => {
+     this.$store.commit('checkStatus', user)
+      console.log(user);
+  })
+  },
+
   methods: {
     showPassword(e) {
       const password = this.$el.querySelector("#password")
@@ -36,6 +53,7 @@ export default {
   }
 
 }
+
 </script>
 
 <style>

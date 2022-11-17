@@ -45,7 +45,33 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyCcBIPvUheFOtwI_VjSJoUtGhui4J7gfpQ",
+          authDomain: "coral-store.firebaseapp.com",
+          projectId: "coral-store",
+          storageBucket: "coral-store.appspot.com",
+          messagingSenderId: "854240236214",
+          appId: "1:854240236214:web:d29ed886fac0a483c48c17",
+          measurementId: "G-66EX19JZQK"
+        },
+        services: {
+          auth: true,
+          firestore: true,
+          functions: true,
+          storage: true,
+          database: true,
+          messaging: true,
+          performance: true,
+          analytics: true,
+          remoteConfig: true,
+          
+        }
+      }
+    ]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
