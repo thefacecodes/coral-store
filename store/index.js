@@ -21,12 +21,49 @@ export const getters = {
 
 export const mutations = {
   checkStatus(state, user) {
-    state.user = user
+    if(user) {
+      state.user = user
+      this.$router.push('/profile')
+    } else {
+      state.user = null
+    }
+    
+  },
+
+  SignOut(state, auth) {
+    state.user = auth
   },
 
   createAccount(state, account) {
     state.user = account;
     console.log(state.user);
+  },
+
+  googleSignIn(state) {
+    const provider = new this.$fireModule.auth.GoogleAuthProvider();
+    this.$fire.auth.signInWithPopup(provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    state.user = user
+    this.$router.push('/profile')
+    console.log(user);
+    // commit('SigninUser', user)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    console.log(errorMessage);
+    // ...
+  });
   },
 
   SigninUser(state, account) {
@@ -98,6 +135,8 @@ export const actions = {
       });
   },
 
+ 
+
   prevPageProducts({ state, commit }) {
     const add = 20;
     commit("reduceSkipandLimit", add);
@@ -146,6 +185,14 @@ export const actions = {
 
   removeFromCart({ commit }, item) {
     commit("removeFromCart", item);
+  },
+
+  SignOut({commit}) {
+    this.$fire.auth.signOut().then(() => {
+     log("LOGGED OUT")
+    }).catch((error) => {
+      console.log(error);
+    });
   },
 
   increaseQuantity({ state, commit }, item) {

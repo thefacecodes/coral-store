@@ -14,7 +14,7 @@
       </div>
       <button type="submit" @click.prevent="(e) => $store.dispatch('LoginAccount' , user)">Login</button>
       <button type="submit" @click.prevent="(e) => $store.dispatch('createAccount', user)">Register</button>
-      <button><i class="fa-brands fa-google"></i> &nbsp; Sign in with Google</button>
+      <button @click.prevent="$store.commit('googleSignIn')"><i class="fa-brands fa-google"></i> &nbsp; Sign in with Google</button>
     </form>
     <h3 v-if="$store.state.user">{{$store.state.user.email}}</h3>
   </div>
@@ -31,13 +31,7 @@ export default {
       
     }
   },
-  created() {
-    this.$fire.auth.onAuthStateChanged(user => {
-     this.$store.commit('checkStatus', user)
-      console.log(user);
-  })
-  },
-
+  
   methods: {
     showPassword(e) {
       const password = this.$el.querySelector("#password")
