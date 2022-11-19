@@ -14,6 +14,7 @@
       </div>
       <button type="submit" @click.prevent="(e) => $store.dispatch('LoginAccount' , user)">Login</button>
       <button type="submit" @click.prevent="(e) => $store.dispatch('createAccount', user)">Register</button>
+      <h3 class="text-center my-4 font-bold">OR</h3>
       <button @click.prevent="$store.commit('googleSignIn')"><i class="fa-brands fa-google"></i> &nbsp; Sign in with Google</button>
     </form>
     <h3 v-if="$store.state.user">{{$store.state.user.email}}</h3>

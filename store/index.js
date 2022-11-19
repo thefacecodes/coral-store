@@ -5,6 +5,7 @@ export const state = () => ({
   favorite: [],
   skip: 0,
   limit: 20,
+  searchInput: "",
   storeProducts: products.store,
   user: null,
 });
@@ -21,17 +22,30 @@ export const getters = {
 
 export const mutations = {
   checkStatus(state, user) {
-    if(user) {
-      state.user = user
-      this.$router.push('/profile')
+    if (user) {
+      state.user = user;
+      // this.$router.push('/profile')
     } else {
-      state.user = null
+      state.user = null;
     }
-    
+  },
+
+  searchInput(state, e) {
+    const input = e.target.value
+    console.log(input);
+    state.searchInput = input
+  },
+
+  searchProduct(state, e) {
+
+    state.storeProducts = state.storeProducts.filter((item) =>
+      item.name ? (item.name.toUpperCase().match(input.toUpperCase())) : (item.title.toUpperCase().match(input.toUpperCase())))
+    ;
+    // state.storeProducts = currentStore;
   },
 
   SignOut(state, auth) {
-    state.user = auth
+    state.user = auth;
   },
 
   createAccount(state, account) {
@@ -41,29 +55,31 @@ export const mutations = {
 
   googleSignIn(state) {
     const provider = new this.$fireModule.auth.GoogleAuthProvider();
-    this.$fire.auth.signInWithPopup(provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    state.user = user
-    this.$router.push('/profile')
-    console.log(user);
-    // commit('SigninUser', user)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    console.log(errorMessage);
-    // ...
-  });
+    this.$fire.auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        state.user = user;
+        this.$router.push("/profile");
+        console.log(user);
+        // commit('SigninUser', user)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(errorMessage);
+        // ...
+      });
   },
 
   SigninUser(state, account) {
@@ -135,8 +151,6 @@ export const actions = {
       });
   },
 
- 
-
   prevPageProducts({ state, commit }) {
     const add = 20;
     commit("reduceSkipandLimit", add);
@@ -147,6 +161,12 @@ export const actions = {
       .then((data) => {
         commit("updatePageProducts", data.products);
       });
+  },
+
+  searchProduct({state, commit}, input) {
+    this.$router.push("/store");
+    console.log('Sezrched value is ', state.searchInput);
+    
   },
 
   async createAccount({ commit }, user) {
@@ -187,12 +207,15 @@ export const actions = {
     commit("removeFromCart", item);
   },
 
-  SignOut({commit}) {
-    this.$fire.auth.signOut().then(() => {
-     log("LOGGED OUT")
-    }).catch((error) => {
-      console.log(error);
-    });
+  SignOut({ commit }) {
+    this.$fire.auth
+      .signOut()
+      .then(() => {
+        log("LOGGED OUT");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
   increaseQuantity({ state, commit }, item) {

@@ -7,20 +7,31 @@
     </div>
     <div class="profile-container">
         <ul class="sidebar">
-            <li>Personal Information <i class="fa-solid fa-greater-than"></i></li>
-            <li>My Orders<i class="fa-solid fa-greater-than"></i></li>
-            <li>My Cart<i class="fa-solid fa-greater-than"></i></li>
-            <li>My Wishlist<i class="fa-solid fa-greater-than"></i></li>
+            <li @click="view = 'personal'">Personal Information <i class="fa-solid fa-greater-than"></i></li>
+            <li @click="view = 'orders'">My Orders<i class="fa-solid fa-greater-than"></i></li>
+            <li @click="view = 'cart'">My Cart<i class="fa-solid fa-greater-than"></i></li>
+            <li @click="view = 'wishlist'">My Wishlist<i class="fa-solid fa-greater-than"></i></li>
         </ul>
         <div class="content">
-
+            <personal-profile v-if="view === 'personal'" />
+            <orders v-else-if="view === 'orders'" />
+            <my-cart v-else-if="view === 'cart'"/>
+            <my-wishlist v-else-if="view === 'wishlist'"/>
         </div>
     </div>
   </div>
 </template>
 
 <script>
+import Orders from '~/components/Orders.vue'
+import PersonalProfile from '~/components/PersonalProfile.vue'
 export default {
+  components: { PersonalProfile, Orders },
+  data() {
+    return {
+        view: "personal"
+    }
+  }
 
 }
 </script>

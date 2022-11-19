@@ -12,18 +12,46 @@ body {
 } */
 
 nav {
-    @apply p-4 flex-col md:flex-row
+    @apply p-4 flex-col md:flex-row flex w-full items-center gap-8 md:justify-between
 }
 
-nav, nav div {
-    @apply flex  items-center gap-8 justify-between
+.mobile {
+    @apply flex gap-4 md:items-center flex-col md:flex-row w-full
 }
 
-nav form {
-    @apply bg-[#F1F1F1] flex items-center p-2 gap-2 text-black w-[300px] rounded
+.mobile .toggle {
+    @apply flex justify-between items-center
 }
 
-nav form input {
+.mobile .toggle button {
+    @apply md:hidden shadow h-[40px] w-[40px] text-[#1B4B66] text-[20px]
+}
+
+.mobile ul {
+    @apply hidden p-4 md:p-0 gap-4 flex-col md:flex md:flex-row bg-[#1B4B66] md:bg-none md:bg-transparent
+}
+
+.mobile ul li {
+    @apply p-4 text-center text-white hover:bg-white hover:text-[#1B4B66] hover:border-l-4 md:border-none hover:border-[#F1F1F1] md:text-[#1B4B66]
+}
+
+.searchNicons {
+    @apply flex flex-col lg:flex-row justify-center w-full md:w-auto items-center gap-4
+}
+
+.searchNicons .icons {
+    @apply flex gap-4 md:gap-8 items-center
+}
+
+.searchNicons .icons a {
+    @apply shadow px-4 py-3 md:shadow-none md:px-0 md:py-0 text-[#1B4B66]
+}
+
+.searchNicons form {
+    @apply bg-[#F1F1F1] flex items-center p-2 gap-2 text-black w-full md:w-[300px] rounded
+}
+
+.searchNicons form input {
     @apply bg-none bg-transparent text-sm text-black w-full border-none outline-none
 }
 
@@ -32,7 +60,7 @@ nav form input {
 }
 
 .banner p {
-    @apply text-base text-justify leading-7
+    @apply text-base text-justify
 }
 
 .hero-text {
@@ -60,7 +88,7 @@ nav form input {
 }
 
 .arrival .top h2 {
-    @apply text-[34px] font-semibold
+    @apply text-[20px] md:text-[34px] font-semibold
 }
 
 .arrival .top p {
@@ -121,7 +149,7 @@ button.add-to-cart {
 }
 
 .handpick h2 {
-    @apply text-[34px] font-bold mb-8 text-white
+    @apply text-[20px] md:text-[34px] font-bold mb-8 text-white
 }
 
 .handpick .category {
@@ -137,7 +165,7 @@ button.add-to-cart {
 }
 
 .handpick .category div h4 {
-    @apply absolute bottom-0 p-2 md:p-4 bg-[rgba(0,0,0,0.5)] w-full text-[18px] md:text-[24px] text-white font-bold
+    @apply absolute bottom-0 p-2 md:p-4 bg-[rgba(0,0,0,0.5)] w-full text-[16px] md:text-[24px] text-white font-bold
 }
 
 .brands {
@@ -145,7 +173,7 @@ button.add-to-cart {
 }
 
 .brands h2 {
-   @apply text-[34px] font-bold mb-8
+   @apply text-[20px] md:text-[34px] font-bold mb-8
 }
 
 .wrapper::-webkit-scrollbar {
@@ -163,7 +191,7 @@ button.add-to-cart {
 }
 
 .brands .banner-2 {
-    @apply my-8 w-full
+    @apply my-4 md:my-8 w-full
 }
 
 .cta {
@@ -450,11 +478,11 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .profile .top h1 {
-    @apply text-[20px] lg:text-[34px] font-semibold
+    @apply text-[18px] lg:text-[34px] font-semibold text-[#1B4B66]
 }
 
 .profile .top button {
-    @apply border-2 border-[#1B4B66] text-[#1B4B66] px-6 py-2 rounded text-[14px] font-medium
+    @apply border-2 border-[#1B4B66] text-[#1B4B66] px-4 md:px-6 py-1 md:py-2 rounded text-[14px] font-medium
 }
 
 .profile-container {

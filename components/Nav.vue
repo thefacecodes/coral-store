@@ -1,23 +1,31 @@
 <!-- Please remove this file from your project -->
 <template>
 <nav>
-  <div>
-     <img src="/logo.png" alt="">
-     <nuxt-link to="/">Handbags</nuxt-link>
-<nuxt-link to="/about">Watches</nuxt-link>
-<nuxt-link to="/">Skincare</nuxt-link>
-<nuxt-link to="/">Jewellerys</nuxt-link>
-<nuxt-link to="/">Apparels</nuxt-link>
+  <div class="mobile">
+    <div class="toggle">
+      <nuxt-link to="/"><img src="/logo.png" alt=""></nuxt-link>
+      <button @click="showMenu()"><i class="fa-solid fa-bars-staggered"></i></button>
+    </div>
+     
+     <ul>
+      <li><nuxt-link to="/">Handbags</nuxt-link></li>
+      <li><nuxt-link to="/about">Watches</nuxt-link></li>
+      <li><nuxt-link to="/">Skincare</nuxt-link></li>
+      <li><nuxt-link to="/">Jewellerys</nuxt-link></li>
+      <li><nuxt-link to="/">Apparels</nuxt-link></li>
+     </ul>
   </div>
-  <div>
-    <form>
+  <div class="searchNicons">
+    <form @submit.prevent="$store.dispatch('searchProduct', input)">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="search" name="search" id="search" placeholder="Search for products or brands.....">
+      <input type="search" name="search" @keyup="(e) => $store.commit('searchInput', e)" id="search" placeholder="Search for products or brands.....">
     </form>
-    <i class="fa-regular fa-heart"></i>
-    <i @click="$router.push('/cart')" class="fa-solid fa-bag-shopping"></i>
-    <nuxt-link to='/signin'><i class="fa-regular fa-user"></i></nuxt-link>
-
+    <div class="icons">
+      <nuxt-link to="/"><i class="fa-regular fa-heart"></i></nuxt-link>
+      <nuxt-link to="/cart"><i class="fa-solid fa-bag-shopping"></i></nuxt-link>
+      <nuxt-link to="/signin"><i class="fa-regular fa-user"></i></nuxt-link>
+    </div>
+ 
   </div>
  
 </nav>
@@ -25,6 +33,22 @@
 
 <script>
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  data() {
+    return {
+      input:""
+    }
+  },
+  methods: {
+    showMenu() {
+      const menu = this.$el.querySelector("ul")
+      if(menu.style.display === "none") {
+        menu.style.display = "flex"
+      } else {
+        menu.style.display = "none"
+      }
+      
+    }
+  }
 }
 </script>
