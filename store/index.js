@@ -33,6 +33,7 @@ export const mutations = {
   searchInput(state, e) {
     const input = e.target.value
     state.searchInput = input
+    this.$router.push("/store");
   },
 
   clearSearchInput(state) {
@@ -129,7 +130,7 @@ export const mutations = {
 
 export const actions = {
   async productsList({ state, commit }) {
-    fetch(
+    await fetch(
       `https://dummyjson.com/products?skip=${state.skip}&limit=${state.limit}`
     )
       .then((response) => response.json())
@@ -164,9 +165,8 @@ export const actions = {
       .catch(error => console.log(error))
   },
 
-  searchProduct({state, commit}) {
-    this.$router.push("/store");
-    fetch(`https://dummyjson.com/products/search?q=${state.searchInput}`)
+  async searchProduct({state, commit}) {
+    await fetch(`https://dummyjson.com/products/search?q=${state.searchInput}`)
     .then(response => response.json())
     .then(data => commit('searchProduct', data))
     .catch(error => console.log(error))

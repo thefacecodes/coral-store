@@ -365,7 +365,7 @@ table td .cart-item img, table td .cart-item div {
 .image-section .image-slider {
     scrollbar-width: none;
     -ms-overflow-style: none;
-    @apply w-full flex gap-2 justify-between max-h-[300px] mt-12 overflow-x-scroll
+    @apply w-full flex gap-2 md:gap-4 max-h-[300px] mt-12 overflow-x-scroll
 }
 
 .image-section .image-slider img {
@@ -413,6 +413,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .details-section .quantity button, .details-section .quantity input {
+    -moz-inner-spin-button: none;
     @apply text-[20px] h-[50px] w-[50px] shadow text-center
 }
 
