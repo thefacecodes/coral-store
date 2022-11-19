@@ -32,16 +32,15 @@ export const mutations = {
 
   searchInput(state, e) {
     const input = e.target.value
-    console.log(input);
     state.searchInput = input
   },
 
-  searchProduct(state, e) {
+  clearSearchInput(state) {
+    state.searchInput = ""
+  },
 
-    state.storeProducts = state.storeProducts.filter((item) =>
-      item.name ? (item.name.toUpperCase().match(input.toUpperCase())) : (item.title.toUpperCase().match(input.toUpperCase())))
-    ;
-    // state.storeProducts = currentStore;
+  searchProduct(state, data) {
+    state.storeProducts = data.products
   },
 
   SignOut(state, auth) {
@@ -148,7 +147,8 @@ export const actions = {
       .then((response) => response.json())
       .then((data) => {
         commit("updatePageProducts", data.products);
-      });
+      })
+      .catch(error => console.log(error))
   },
 
   prevPageProducts({ state, commit }) {
@@ -160,13 +160,18 @@ export const actions = {
       .then((response) => response.json())
       .then((data) => {
         commit("updatePageProducts", data.products);
-      });
+      })
+      .catch(error => console.log(error))
   },
 
-  searchProduct({state, commit}, input) {
+  searchProduct({state, commit}) {
     this.$router.push("/store");
-    console.log('Sezrched value is ', state.searchInput);
-    
+    fetch(`https://dummyjson.com/products/search?q=${state.searchInput}`)
+    .then(response => response.json())
+    .then(data => commit('searchProduct', data))
+    .catch(error => console.log(error))
+    commit('clearSearchInput')
+
   },
 
   async createAccount({ commit }, user) {
