@@ -7,6 +7,7 @@ export const state = () => ({
   limit: 20,
   searchInput: "",
   storeProducts: products.store,
+  modal: null,
   user: null,
 });
 
@@ -21,6 +22,15 @@ export const getters = {
 };
 
 export const mutations = {
+  closeModal(state) {
+    state.modal = null    
+  },
+
+  showModal(state, modalContent) {
+    state.modal = modalContent
+    console.log(modalContent);
+    console.log(state.modal);
+  },
   checkStatus(state, user) {
     if (user) {
       state.user = user;
@@ -45,12 +55,17 @@ export const mutations = {
   },
 
   SignOut(state, auth) {
-    state.user = auth;
+    state.user = null;
   },
 
   createAccount(state, account) {
     state.user = account;
     console.log(state.user);
+    const modalContent = {
+      message: "Account created.",
+      description: `Account with user email ${account.email} has been created successfully`
+    }
+    state.modal = modalContent
   },
 
   googleSignIn(state) {
@@ -85,6 +100,12 @@ export const mutations = {
   SigninUser(state, account) {
     state.user = account;
     console.log(state.user);
+    const modalContent = {
+      message: "Logged in.",
+      description: `${account.email} has been logged in successfully`
+    }
+    state.modal = modalContent
+    this.$router.push('/profile')
   },
 
   updatePageProducts(state, newproduct) {
@@ -105,26 +126,59 @@ export const mutations = {
     state.skip = state.skip + add;
   },
 
+  increaseQuantity(state, item) {
+    const inBag = state.bag.find((product) => product.id === item.id);
+    inBag.quantity++;
+    const modalContent = {
+      message: "Cart item increased.",
+      description: `Quantity of ${item.name ? item.name : item.title} in cart has been increased by 1`
+    }
+    state.modal = modalContent
+  },
+
   reduceSkipandLimit(state, add) {
     state.skip = state.skip - add;
   },
 
   addToCart(state, item) {
+    item.quantity ? item.quantity : item.quantity = 1
+    
     const inBag = state.bag.find((product) => product.id === item.id);
-    if (inBag) {
-      inBag.quantity++;
+    // console.log(state.modal.description);
+  if (inBag) {
+      inBag.quantity = parseInt(inBag.quantity) + parseInt(item.quantity);
+      const modalContent = {
+        message: "Cart item increased",
+        description: `Quantity of ${item.name ? item.name : item.title} in cart has been by ${item.quantity}.`
+      }
+      state.modal = modalContent
     } else {
       state.bag = [...state.bag, item];
+      const modalContent = {
+        message: "Added to Cart",
+        description: `${item.name ? item.name : item.title} has been added to your cart successfully.`
+      }
+      state.modal = modalContent
     }
-  },
+   },
 
   removeFromCart(state, item) {
     state.bag = state.bag.filter((product) => product.id !== item.id);
+    const modalContent = {
+      message: "Removed from Cart",
+      description: `${item.name ? item.name : item.title} has been removed from your cart successfully.`
+    }
+    state.modal = modalContent
   },
 
   decreaseQuantity(state, item) {
     const inBag = state.bag.find((product) => product.id === item.id);
     inBag.quantity--;
+    const modalContent = {
+      message: "Cart item reduced.",
+      description: `Quantity of ${item.name ? item.name : item.title} in cart has been reduced by 1`
+    }
+    state.modal = modalContent
   },
 };
 
@@ -136,7 +190,8 @@ export const actions = {
       .then((response) => response.json())
       .then((data) => {
         commit("productsList", data.products);
-      });
+      })
+      .catch(error => console.log(error))
   },
 
   nextPageProducts({ state, commit }) {
@@ -171,7 +226,7 @@ export const actions = {
     .then(data => commit('searchProduct', data))
     .catch(error => console.log(error))
     commit('clearSearchInput')
-
+    .catch(error => console.log(error))
   },
 
   async createAccount({ commit }, user) {
@@ -209,6 +264,11 @@ export const actions = {
   },
 
   removeFromCart({ commit }, item) {
+    const modalContent = {
+      message: "Removed from Cart",
+      description: `${item.name ? item.name : item.title} has been removed from your cart successfully.`
+    }
+    commit("showModal", modalContent)
     commit("removeFromCart", item);
   },
 
@@ -226,6 +286,12 @@ export const actions = {
   increaseQuantity({ state, commit }, item) {
     const cartitem = state.bag.find((product) => product.id === item.id);
     // cartitem.quantity++
+    // const modalContent = {
+    //   show: true,
+    //   message: "Cart item Quantity increased",
+    //   description: `Quantity of ${item.name ? item.name : item.title} in your cart has been increased.`
+    // }
+    // commit("showModal", modalContent)
     commit("increaseQuantity", cartitem);
   },
 };

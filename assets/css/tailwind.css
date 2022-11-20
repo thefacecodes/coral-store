@@ -5,11 +5,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
+
 
 body {
-    @apply font-p
-} */
+    @apply font-[Inter]
+}
 
 nav {
     @apply p-4 flex-col md:flex-row flex w-full items-center gap-8 md:justify-between
@@ -32,7 +32,7 @@ nav {
 }
 
 .mobile ul li {
-    @apply p-4 text-center text-white hover:bg-white hover:text-[#1B4B66] hover:border-l-4 md:border-none hover:border-[#F1F1F1] md:text-[#1B4B66]
+    @apply p-4 text-center text-white hover:bg-white hover:text-[#1B4B66] hover:border-l-4 md:border-none hover:border-[#F1F1F1] md:text-[#1B4B66] md:p-0
 }
 
 .searchNicons {
@@ -330,7 +330,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .modal {
-    @apply bg-black p-4 text-white fixed top-0 w-screen text-center transition-transform duration-1000 ease-in-out
+    @apply bg-black z-50 p-4 text-white fixed top-0 w-screen text-center transition-transform duration-1000 ease-in-out
 }
 
 .modal h1 {
@@ -401,7 +401,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .details-section p.description {
-    @apply text-[20px] font-normal my-6
+    @apply text-[20px] font-normal my-6 text-justify
 }
 
 .details-section .prices h6 {
@@ -413,7 +413,6 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .details-section .quantity button, .details-section .quantity input {
-    -moz-inner-spin-button: none;
     @apply text-[20px] h-[50px] w-[50px] shadow text-center
 }
 

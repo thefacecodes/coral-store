@@ -30,7 +30,7 @@
             <td>${{(product.price * product.quantity).toFixed(2)}}</td>
             <td>
               <button :disabled="product.quantity<=1" @click="$store.commit('decreaseQuantity', product)" class="text-[#B00020] shadow p-4">&#8211;</button>
-              <button @click="$store.commit('addToCart', product)" class="text-[#1B4B66] shadow p-4">&#43;</button>
+              <button @click="$store.commit('increaseQuantity', product)" class="text-[#1B4B66] shadow p-4">&#43;</button>
             </td>
             <td>
               <button @click="$store.commit('removeFromCart', product)" class="text-[#B00020] shadow p-4"><i class="fa-solid fa-trash"></i></button>

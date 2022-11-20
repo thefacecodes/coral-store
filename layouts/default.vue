@@ -1,7 +1,7 @@
 <template>
 <main>
   <Nav />
-  <!-- <Modal /> -->
+  <Modal v-if="$store.state.modal"/>
   <Nuxt />
   <Footer />
 </main>
@@ -16,6 +16,9 @@ export default {
       console.log(user);
   })
   },
+  computed() {
+      return this.$store.state.modal  
+  }
 
 }
 </script>

@@ -14,7 +14,7 @@
         <ul>
             <h6>About</h6>
             <li><nuxt-link to="/">Contact Us</nuxt-link></li>
-            <li><nuxt-link to="/">About Us</nuxt-link></li>
+            <li><nuxt-link to="/about">About Us</nuxt-link></li>
             <li><nuxt-link to="/">Careers</nuxt-link></li>
             <li><nuxt-link to="/">Press</nuxt-link></li>
         </ul>

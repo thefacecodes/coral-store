@@ -8,8 +8,8 @@
     </div>
      
      <ul>
-      <li><nuxt-link to="/">Handbags</nuxt-link></li>
-      <li><nuxt-link to="/about">Watches</nuxt-link></li>
+      <li><nuxt-link to="/store">Store</nuxt-link></li>
+      <li><nuxt-link to="/about">About</nuxt-link></li>
       <li><nuxt-link to="/">Skincare</nuxt-link></li>
       <li><nuxt-link to="/">Jewellerys</nuxt-link></li>
       <li><nuxt-link to="/">Apparels</nuxt-link></li>

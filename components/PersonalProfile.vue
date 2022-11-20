@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="profile">
     <h2>Personal profile</h2>
+    <p>Welcome, {{$state.user.email}}</p>
   </div>
 </template>
 
