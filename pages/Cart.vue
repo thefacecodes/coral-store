@@ -36,7 +36,7 @@
             </td>
             <td>
               <button @click="$store.commit('removeFromCart', product)" class="text-[#B00020] shadow p-4"><i class="fa-solid fa-trash"></i></button>
-              <button class="text-[#1B4B66] shadow p-4"><i class="fa-solid fa-heart"></i></button>
+              <button @click="$store.commit('addToWishlist', product)" class="text-[#1B4B66] shadow p-4"><i class="fa-solid fa-heart"></i></button>
             </td>
         </tr>
     

@@ -27,7 +27,7 @@
                 </div>
                 <div class="ctas">
                     <button @click="$store.commit('addToCart', productDispatch)" class="bg-[#1B4B66] text-white">Add to Bag</button>
-                    <button class="text-[#1B4B66]">Add to Wishlist</button>
+                    <button @click="$store.commit('addToWishlist', product)" class="text-[#1B4B66]">Add to Wishlist</button>
                 </div>
             </div>
          </div>

@@ -9,6 +9,9 @@
 </template>
 
 <script>
+// import Vue from 'vue'
+// import PayPal from 'vue-paypal-checkout'
+// Vue.component('paypal-checkout', PayPal)
 export default {
   created() {
     this.$fire.auth.onAuthStateChanged(user => {

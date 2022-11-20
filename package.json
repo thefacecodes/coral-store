@@ -15,6 +15,7 @@
     "nuxt": "^2.15.8",
     "swiper": "^8.4.4",
     "vue": "^2.7.10",
+    "vue-paypal-checkout": "^3.2.0",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
   },

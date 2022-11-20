@@ -2,7 +2,7 @@ import products from "../assets/products.json";
 
 export const state = () => ({
   bag: [],
-  favorite: [],
+  wishlist: [],
   skip: 0,
   limit: 20,
   searchInput: "",
@@ -25,6 +25,36 @@ export const getters = {
 export const mutations = {
   closeModal(state) {
     state.modal = null    
+  },
+
+  addToWishlist(state, product) {
+    const already = state.wishlist.find(item => item.id === product.id)
+    state.bag = state.bag.filter((item) => item.id !== product.id);
+
+    if(already) {
+      const modalContent = {
+        message: "Already on Wishlist.",
+        description: `${already.name ? already.name : already.title} already on wishlist.`
+      }
+      state.modal = modalContent
+    } else {
+        state.wishlist = [...state.wishlist, product]
+        const modalContent = {
+          message: "Added to Wishlist.",
+          description: `${product.name ? product.name : product.title} has been added to wishlist.`
+        }
+        state.modal = modalContent
+    }
+ 
+  },
+
+  removeFromWishlist(state, product) {
+    state.wishlist = state.wishlist.filter(item => item.id !== product.id)
+    const modalContent = {
+      message: "Removed from Wishlist.",
+      description: `${product.name ? product.name : product.title} has been removed from wishlist.`
+    }
+    state.modal = modalContent
   },
 
   showModal(state, modalContent) {
@@ -177,7 +207,10 @@ export const mutations = {
 
   addToCart(state, item) {
     item.quantity ? item.quantity : item.quantity = 1
-    
+
+    state.wishlist = state.wishlist.filter(product=> product.id !== item.id)
+  
+
     const inBag = state.bag.find((product) => product.id === item.id);
     // console.log(state.modal.description);
   if (inBag) {
@@ -197,6 +230,7 @@ export const mutations = {
       }
       state.modal = modalContent
     }
+    // commit('removeFromWishlist', item)
    },
 
   removeFromCart(state, item) {

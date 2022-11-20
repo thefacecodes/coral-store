@@ -32,6 +32,11 @@ export default {
       
     }
   },
+  mounted() {
+    if(this.$store.state.user) {
+      this.$router.push('/profile')
+    }
+  },
   
   methods: {
     showPassword(e) {

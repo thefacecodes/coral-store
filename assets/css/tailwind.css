@@ -60,19 +60,19 @@ nav {
 }
 
 .banner p {
-    @apply text-base text-justify
+    @apply text-base lg:text-justify
 }
 
 .hero-text {
-    @apply p-4 md:p-8 flex items-start flex-col justify-center lg:p-16 h-[75%] lg:h-auto w-full md:w-3/4 lg:w-1/2 bg-white bg-opacity-40 absolute text-[#1B4B66] -right-10 rounded-3xl backdrop-blur
+    @apply p-4 md:p-8 flex items-start flex-col justify-center lg:p-16 md:h-[75%] lg:h-auto w-full md:w-3/4 lg:w-1/2 bg-white bg-opacity-40 absolute text-[#1B4B66] -right-10 rounded-3xl backdrop-blur
 } 
 
 .hero-text h1 {
-    @apply text-[40px] md:text-[45px] lg:text-[60px] font-bold
+    @apply text-[32px] md:text-[45px] lg:text-[60px] font-bold
 }
 
 .hero-text p {
-    @apply text-[28px] my-4 lg:my-8 font-medium
+    @apply text-[20px] w-11/12 lg:text-[28px] mb-4 lg:my-8 font-medium
 }
 
 .hero-text button {
@@ -511,4 +511,36 @@ table td .cart-item img, table td .cart-item div {
 
 .profile-container ul li {
     @apply p-4 text-[#1B4B66] mb-2 rounded flex justify-between items-center hover:bg-white hover:text-[#1B4B66] hover:border-l-4 hover:border-[#1B4B66]
+}
+
+.wishlist {
+    @apply p-4 lg:p-8
+}
+
+.wishlist h1 {
+    @apply text-[22px] lg:text-[34px] font-semibold mb-4
+}
+
+.wishlist-item {
+    @apply flex gap-2 md:gap-4 items-center mb-4
+}
+
+.wishlist-item img {
+    @apply w-auto h-[180px] lg:h-[250px]
+}
+
+.wishlist-item div h2 {
+    @apply text-[16px] lg:text-[20px] font-semibold uppercase
+}
+
+.wishlist-item div p {
+    @apply text-[14px] lg:text-[20px] text-[#1B4B66] my-2 lg:my-4 font-normal
+}
+
+.wishlist-item div h3 {
+    @apply text-[14px] lg:text-[18px] font-bold
+}
+
+.wishlist-item div button {
+    @apply px-4 py-2 rounded shadow mt-1 md:mt-2 text-[12px] lg:text-[18px] font-medium
 }

@@ -5,7 +5,7 @@
       </nuxt-link>
       <div class="price-favorite">
         <h3>{{product.brand}}</h3> 
-        <i class="fa-regular fa-heart"></i>
+        <i @click="$store.commit('addToWishlist', product)" class="fa-regular fa-heart"></i>
       </div>
       <nuxt-link :to="'/store/' + product.id">
       <p>{{product.name ? product.name : product.title}}</p>
