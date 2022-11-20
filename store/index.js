@@ -19,6 +19,7 @@ export const getters = {
     console.log(new Intl.NumberFormat(total));
     return total;
   },
+
 };
 
 export const mutations = {
@@ -36,7 +37,7 @@ export const mutations = {
       state.user = user;
       // this.$router.push('/profile')
     } else {
-      state.user = null;
+      this.$router.push('/')
     }
   },
 
@@ -55,15 +56,30 @@ export const mutations = {
   },
 
   SignOut(state, auth) {
-    state.user = null;
+    this.$fire.auth
+      .signOut()
+      .then(() => {
+        console.log("LOGGED OUT")
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
-  createAccount(state, account) {
+  createAccountSuccess(state, account) {
     state.user = account;
     console.log(state.user);
     const modalContent = {
       message: "Account created.",
       description: `Account with user email ${account.email} has been created successfully`
+    }
+    state.modal = modalContent
+  },
+
+  createAccountFailed(state, error) {
+    const modalContent = {
+      message: `Error ${error.code}`,
+      description: `${error.message}`
     }
     state.modal = modalContent
   },
@@ -74,12 +90,17 @@ export const mutations = {
       .signInWithPopup(provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        // const credential = this.$fireModule.auth.GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
         state.user = user;
-        this.$router.push("/profile");
+        this.$router.push('/profile')
+        const modalContent = {
+          message: "Authorized",
+          description: `${user.email}'s Google sign-in authorization successful.`
+        }
+        state.modal = modalContent
         console.log(user);
         // commit('SigninUser', user)
         // ...
@@ -91,21 +112,35 @@ export const mutations = {
         // The email of the user's account used.
         const email = error.customData.email;
         // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        state.user = null
+        // const credential = this.$fireModule.auth.GoogleAuthProvider.credentialFromError(error);
         console.log(errorMessage);
+        const modalContent = {
+          message: `Error ${errorCode}`,
+          description: `${errorMessage}`
+        }
+        state.modal = modalContent
         // ...
       });
   },
 
-  SigninUser(state, account) {
+  SigninSuccess(state, account) {
     state.user = account;
     console.log(state.user);
+    this.$router.push('/profile')
     const modalContent = {
       message: "Logged in.",
       description: `${account.email} has been logged in successfully`
     }
     state.modal = modalContent
-    this.$router.push('/profile')
+  },
+
+  SigninFailed(state, error) {
+    const modalContent = {
+      message: `Error ${error.code}`,
+      description: `${error.message}`
+    }
+    state.modal = modalContent
   },
 
   updatePageProducts(state, newproduct) {
@@ -146,17 +181,19 @@ export const mutations = {
     const inBag = state.bag.find((product) => product.id === item.id);
     // console.log(state.modal.description);
   if (inBag) {
+    console.log(inBag.quantity);
+    console.log(item.quantity);
       inBag.quantity = parseInt(inBag.quantity) + parseInt(item.quantity);
       const modalContent = {
         message: "Cart item increased",
-        description: `Quantity of ${item.name ? item.name : item.title} in cart has been by ${item.quantity}.`
+        description: `Quantity of ${item.name ? item.name : item.title} in cart has been increased by ${item.quantity}.`
       }
       state.modal = modalContent
     } else {
       state.bag = [...state.bag, item];
       const modalContent = {
         message: "Added to Cart",
-        description: `${item.name ? item.name : item.title} has been added to your cart successfully.`
+        description: `${item.quantity} x ${item.name ? item.name : item.title} has been added to your cart successfully.`
       }
       state.modal = modalContent
     }
@@ -235,11 +272,12 @@ export const actions = {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        commit("createAccount", account);
+        commit("createAccountSuccess", account);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        commit("createAccountFailed", error)
         console.log(errorMessage);
         // ..
       });
@@ -252,7 +290,7 @@ export const actions = {
       .then((userCredential) => {
         // Signed in
         const account = userCredential.user;
-        commit("SigninUser", account);
+        commit("SigninSuccess", account);
         console.log(user);
         // ...
       })
@@ -260,6 +298,7 @@ export const actions = {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
+        commit("SigninFailed", error)
       });
   },
 
@@ -276,7 +315,7 @@ export const actions = {
     this.$fire.auth
       .signOut()
       .then(() => {
-        log("LOGGED OUT");
+        console.log("LOGGED OUT");
       })
       .catch((error) => {
         console.log(error);

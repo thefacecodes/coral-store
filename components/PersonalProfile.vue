@@ -1,7 +1,7 @@
 <template>
   <div class="profile">
     <h2>Personal profile</h2>
-    <p>Welcome, {{$state.user.email}}</p>
+    <p>Welcome, {{$store.state.user.email}}</p>
   </div>
 </template>
 

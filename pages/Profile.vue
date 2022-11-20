@@ -3,7 +3,7 @@
     <div class="top">
       <h1>Personal Information</h1>
     <!-- <h2>Hi, {{$store.state.user.email}}</h2> -->
-    <button @click="$store.dispatch('SignOut')"><i class="fa-solid fa-right-from-bracket"></i> Log out</button>  
+    <button @click="$store.commit('SignOut')"><i class="fa-solid fa-right-from-bracket"></i> Log out</button>  
     </div>
     <div class="profile-container">
         <ul class="sidebar">

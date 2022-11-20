@@ -1,5 +1,7 @@
 <template>
-  <div class="cart">
+  <section>
+    <empty-cart v-if="$store.state.bag.length < 1"/>
+  <div class="cart" v-if="$store.state.bag.length > 0">
     <h1>My Cart</h1>
    <div class="container">
 <div class="table-container">
@@ -67,6 +69,7 @@
     </div>
   </div>
 </div>
+  </section>
 </template>
 
 <script>

@@ -282,7 +282,7 @@ p.location {
 }
 
 .cart table th, .cart table tr {
-    @apply w-full border-b-2
+    @apply w-full border-b-2 mr-4
 }
 
 table td {
@@ -290,7 +290,7 @@ table td {
 }
 
 table tr td:first-child {
-    @apply w-2/5
+    @apply w-4/5 md:w-2/5
 }
 
 table td .cart-item {
@@ -327,6 +327,22 @@ table td .cart-item img, table td .cart-item div {
 
 .cart .order h2 {
     @apply shadow p-2
+}
+
+.empty {
+    @apply flex flex-col justify-center items-center py-8 text-[#1B4B66]
+}
+
+.empty img {
+    @apply w-auto h-[60vh] md:h-[70vh]
+}
+
+.empty h1 {
+    @apply text-[22px] mt-2 font-semibold
+}
+
+.empty button {
+    @apply px-4 py-2 bg-[#1B4B66] text-white rounded mt-2
 }
 
 .modal {
