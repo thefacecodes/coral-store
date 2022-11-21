@@ -18,7 +18,7 @@
   <div class="searchNicons">
     <form @submit.prevent="$store.dispatch('searchProduct', input)">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="search" name="search" :value="$store.state.searchInput" @keyup="(e) => $store.commit('searchInput', e)" id="search" placeholder="Search for products or brands.....">
+      <input type="search" autocomplete="off" name="search" :value="$store.state.searchInput" @keyup="(e) => $store.commit('searchInput', e)" id="search" placeholder="Search for products or brands.....">
     </form>
     <div class="icons">
       <nuxt-link to="/wishlist"><i class="fa-regular fa-heart"></i></nuxt-link>

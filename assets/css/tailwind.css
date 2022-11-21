@@ -314,11 +314,11 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .cart .order div {
-    @apply flex justify-between items-center my-4 p-2
+    @apply flex justify-between gap-2 items-center my-4 p-2
 }
 
 .cart .order div button {
-    @apply w-[45%] py-2 rounded border-2 border-[#1B4B66] font-semibold
+    @apply w-1/2 lg:w-[45%] py-2 text-[14px] md:text-[18px] rounded border-2 border-[#1B4B66] font-semibold
 }
 
 .cart .order h2, .cart .order div h3 {
@@ -405,7 +405,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .details-section .prices {
-    @apply flex gap-6 lg:gap-8 items-center py-4 border-y-4 mt-2
+    @apply flex gap-6 lg:gap-8 items-center py-2 lg:py-4 border-y-4 mt-2
 }
 
 .details-section .prices h4 {
@@ -417,11 +417,11 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .details-section p.description {
-    @apply text-[20px] font-normal my-6 text-justify
+    @apply text-[18px] lg:text-[20px] font-normal my-6 text-justify
 }
 
 .details-section .prices h6 {
-    @apply text-[20px] text-[#FF404B] font-semibold
+    @apply text-[18px] lg:text-[20px] text-[#FF404B] font-semibold
 }
 
 .details-section .quantity {
@@ -534,7 +534,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .wishlist-item div p {
-    @apply text-[14px] lg:text-[20px] text-[#1B4B66] my-2 lg:my-4 font-normal
+    @apply text-[14px] lg:text-[20px] text-[#1B4B66] my-1 md:my-2 lg:my-4 font-normal
 }
 
 .wishlist-item div h3 {

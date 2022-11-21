@@ -4,6 +4,17 @@
 
 ![](./assets/images/screenshot.png)
 
+## Web version
+
+- Visit [here](https://coral-store.web.app)
+
+### Built with
+
+- HTML
+- Tailwind CSS
+- Nuxt JS
+- Firebase
+
 ## Build Setup
 
 ```bash

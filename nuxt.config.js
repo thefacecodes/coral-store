@@ -13,7 +13,7 @@ export default {
     ],
     script: [
       {
-        src:  "https://unpkg.com/vue-paypal-checkout@2.0.0/dist/vue-paypal-checkout.min.js"
+        // src:  "https://unpkg.com/vue-paypal-checkout@2.0.0/dist/vue-paypal-checkout.min.js"
       }
     ],
     link: [
@@ -27,7 +27,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/paypal.js', ssr: false }
+    // { src: '~/plugins/paypal.js', ssr: false }
   ],
 
   tailwindcss: {   

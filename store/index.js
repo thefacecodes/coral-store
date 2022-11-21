@@ -173,6 +173,15 @@ export const mutations = {
     state.modal = modalContent
   },
 
+  emptyInput(state) {
+    const modalContent = {
+      message: "Empty field(s).",
+      description: "Please fill the input fields"
+    }
+    state.modal = modalContent
+  },
+  
+
   updatePageProducts(state, newproduct) {
     if (state.skip < 20) {
       state.storeProducts = [...products.store, ...newproduct];
@@ -301,39 +310,49 @@ export const actions = {
   },
 
   async createAccount({ commit }, user) {
-    await this.$fire.auth
-      .createUserWithEmailAndPassword(user.email, user.password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        commit("createAccountSuccess", account);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        commit("createAccountFailed", error)
-        console.log(errorMessage);
-        // ..
-      });
+    if(user.email && user.password) {
+        await this.$fire.auth
+              .createUserWithEmailAndPassword(user.email, user.password)
+              .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                commit("createAccountSuccess", account);
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                commit("createAccountFailed", error)
+                console.log(errorMessage);
+                // ..
+              });
+    } else {
+      commit('emptyInput')
+    }
+    
   },
 
   async LoginAccount({ commit }, user) {
     // e.preventDefault();
-    await this.$fire.auth
-      .signInWithEmailAndPassword(user.email, user.password)
-      .then((userCredential) => {
-        // Signed in
-        const account = userCredential.user;
-        commit("SigninSuccess", account);
-        console.log(user);
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        commit("SigninFailed", error)
-      });
+    if(user.email && user.password) {
+        await this.$fire.auth
+          .signInWithEmailAndPassword(user.email, user.password)
+          .then((userCredential) => {
+            // Signed in
+            const account = userCredential.user;
+            commit("SigninSuccess", account);
+            console.log(user);
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            commit("SigninFailed", error)
+          });
+    } else {
+      commit('emptyInput')
+    }
+
   },
 
   removeFromCart({ commit }, item) {
