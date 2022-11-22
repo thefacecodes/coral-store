@@ -56,11 +56,11 @@
       </div>
       <div>
         <h3>Discount</h3>
-        <h4>${{$store.state.discount}}</h4>
+        <h4>${{$store.state.discount.toFixed(2)}}</h4>
       </div>
       <div>
         <h3>Grand total</h3>
-        <h4>${{$store.state.totalAmount - $store.state.discount}}</h4>
+        <h4>${{($store.state.totalAmount - $store.state.discount).toFixed(2)}}</h4>
       </div>
       <div>
         <button @click="$router.push('/checkout')" class="bg-[#1B4B66] text-white">Place Order</button>

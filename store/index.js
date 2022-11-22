@@ -48,8 +48,8 @@ export const mutations = {
                case(valid.type === "percentage") :
                state.discount = state.totalAmount * (valid.discount / 100)
                var modalContent = {
-                message: `Coupon code ${coupon} applied`,
-                description: `${valid.discount} percentage has been deducted from your total.`
+                message: `Coupon code "${coupon}" applied`,
+                description: `${valid.discount}% has been deducted from your total.`
               }
               state.modal = modalContent
               break;
@@ -57,7 +57,7 @@ export const mutations = {
               case(valid.type === "flat") :
               state.discount = valid.discount
               var modalContent = {
-               message: `Coupon code ${coupon} applied`,
+               message: `Coupon code "${coupon}" applied`,
                description: `$${valid.discount} has been deducted from your total.`
              }
              state.modal = modalContent
