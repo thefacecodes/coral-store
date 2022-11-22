@@ -48,7 +48,7 @@
       <h2>Order Summary</h2>
       <div>
         <h3>Subtotal :</h3>
-        <h4>${{$store.getters.totalAmount.toFixed(2)}}</h4>
+        <h4>${{$store.state.totalAmount}}</h4>
       </div>
       <div>
         <h3>Delivery fee</h3>
@@ -56,11 +56,11 @@
       </div>
       <div>
         <h3>Discount</h3>
-        <h4>$0</h4>
+        <h4>${{$store.state.discount}}</h4>
       </div>
       <div>
         <h3>Grand total</h3>
-        <h4>${{$store.getters.totalAmount.toFixed(2)}}</h4>
+        <h4>${{$store.state.totalAmount - $store.state.discount}}</h4>
       </div>
       <div>
         <button @click="$router.push('/checkout')" class="bg-[#1B4B66] text-white">Place Order</button>
@@ -71,7 +71,7 @@
   <form @submit.prevent="applyCoupon()">
     <h5>Apply Coupon</h5>
     <div class="forminput">
-       <input type="text" placeholder="Apply Coupon Code" v-model="coupon" name="coupon" id="coupon">
+       <input type="text" autocomplete="off" placeholder="Apply Coupon Code" v-model="coupon" name="coupon" id="coupon">
     <button type="submit">CHECK</button>
     </div>
    
@@ -98,13 +98,7 @@ export default {
       this.coupon = ""
     }
   },
-  mounted() {
-    const totalAmount = this.$store.getters.totalAmount
-    console.log(totalAmount);
-    this.$store.commit("totalPrice", totalAmount)
-    return totalAmount  
-    // console.log("TOTAL AMOUNT IS :", this.$store.state.totalAmount);
-  }
+ 
 
 }
 </script>

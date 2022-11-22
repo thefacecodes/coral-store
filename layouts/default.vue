@@ -19,6 +19,13 @@ export default {
       console.log(user);
   })
   },
+  beforeUpdate() {
+    const totalAmount = this.$store.getters.totalAmount
+    console.log(totalAmount);
+    this.$store.commit("totalPrice", totalAmount)
+    return totalAmount  
+    // console.log("TOTAL AMOUNT IS :", this.$store.state.totalAmount);
+  },
   computed: {
     
   }

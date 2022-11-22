@@ -6,7 +6,8 @@ export const state = () => ({
   skip: 0,
   limit: 20,
   searchInput: "",
-  totalAmount: "",
+  totalAmount: 0,
+  discount: 0,
   storeProducts: products.store,
   modal: null,
   user: null,
@@ -31,7 +32,7 @@ export const mutations = {
   },
 
   totalPrice(state, total) {
-    state.totalAmount = total
+    state.totalAmount = total.toFixed(2)
     console.log(state.totalAmount);
   },
 
@@ -43,6 +44,25 @@ export const mutations = {
           console.log(valid);
           if(valid) {
             console.log("Now, Lets go");
+            switch(true) {
+               case(valid.type === "percentage") :
+               state.discount = state.totalAmount * (valid.discount / 100)
+               var modalContent = {
+                message: `Coupon code ${coupon} applied`,
+                description: `${valid.discount} percentage has been deducted from your total.`
+              }
+              state.modal = modalContent
+              break;
+
+              case(valid.type === "flat") :
+              state.discount = valid.discount
+              var modalContent = {
+               message: `Coupon code ${coupon} applied`,
+               description: `$${valid.discount} has been deducted from your total.`
+             }
+             state.modal = modalContent
+            }
+             
           } else {
             const modalContent = {
               message: "Invalid Coupon Code",
