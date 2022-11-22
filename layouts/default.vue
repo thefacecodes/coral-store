@@ -19,9 +19,9 @@ export default {
       console.log(user);
   })
   },
-  // computed: {
-  //     return this.$store.state.modal  
-  // }
+  computed: {
+    
+  }
 
 }
 </script>

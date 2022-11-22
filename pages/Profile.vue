@@ -31,6 +31,11 @@ export default {
     return {
         view: "personal"
     }
+  },
+  mounted() {
+    if(!this.$store.state.user) {
+      this.$router.push('/signin')
+    }
   }
 
 }

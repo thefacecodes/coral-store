@@ -52,5 +52,17 @@
         "name": "Sun Glasses",
         "image": "laura-1.png"
       }
+    ],
+    "coupons": [
+      {
+        "code": "TH3F4CE",
+        "type": "percentage",
+        "discount": 50
+      },
+      {
+        "code": "CORAL",
+        "type": "flat",
+        "discount": 10
+      }
     ]
   }

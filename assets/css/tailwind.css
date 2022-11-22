@@ -329,6 +329,22 @@ table td .cart-item img, table td .cart-item div {
     @apply shadow p-2
 }
 
+.cart form {
+    @apply w-full md:w-1/2 text-[#1B4B66] font-semibold mt-6
+}
+
+.cart form h5 {
+    @apply text-[18px] md:text-[24px] mb-4
+}
+
+.cart .forminput {
+    @apply bg-[#F1F1F1] flex items-center h-[50px] px-2 rounded overflow-hidden
+}
+
+.cart .forminput input {
+    @apply bg-none bg-transparent outline-none h-full w-full
+}
+
 .empty {
     @apply flex flex-col justify-center items-center py-8 text-[#1B4B66]
 }

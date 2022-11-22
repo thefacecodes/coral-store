@@ -68,17 +68,42 @@
       </div>
     </div>
   </div>
+  <form @submit.prevent="applyCoupon()">
+    <h5>Apply Coupon</h5>
+    <div class="forminput">
+       <input type="text" placeholder="Apply Coupon Code" v-model="coupon" name="coupon" id="coupon">
+    <button type="submit">CHECK</button>
+    </div>
+   
+  </form>
 </div>
   </section>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      coupon: ""
+    }
+  },
   computed: {
     cartUpdate() {
       return this.$store.state.bag
     }
-    
+  },
+  methods: {
+    applyCoupon() {
+      this.$store.commit('applyCoupon', this.coupon)
+      this.coupon = ""
+    }
+  },
+  mounted() {
+    const totalAmount = this.$store.getters.totalAmount
+    console.log(totalAmount);
+    this.$store.commit("totalPrice", totalAmount)
+    return totalAmount  
+    // console.log("TOTAL AMOUNT IS :", this.$store.state.totalAmount);
   }
 
 }

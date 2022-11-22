@@ -6,6 +6,7 @@ export const state = () => ({
   skip: 0,
   limit: 20,
   searchInput: "",
+  totalAmount: "",
   storeProducts: products.store,
   modal: null,
   user: null,
@@ -16,6 +17,8 @@ export const getters = {
     const prices = state.bag.map((item) => item.price * item.quantity);
     console.log(prices);
     const total = prices.reduce((acc, price) => acc + price, 0);
+    // state.totalAmount = total
+    // dispatch('totalPrice', total)
     console.log(new Intl.NumberFormat(total));
     return total;
   },
@@ -25,6 +28,36 @@ export const getters = {
 export const mutations = {
   closeModal(state) {
     state.modal = null    
+  },
+
+  totalPrice(state, total) {
+    state.totalAmount = total
+    console.log(state.totalAmount);
+  },
+
+  applyCoupon(state, coupon) {
+    console.log(coupon);
+    console.log(products.coupons);
+    if(coupon) {
+      const valid = products.coupons.find(coup => coup.code === coupon)
+          console.log(valid);
+          if(valid) {
+            console.log("Now, Lets go");
+          } else {
+            const modalContent = {
+              message: "Invalid Coupon Code",
+              description: `Coupon code "${coupon}" is invalid.`
+            }
+            state.modal = modalContent
+          }
+    } else {
+      const modalContent = {
+        message: "No Coupon",
+        description: "Please input your coupon code."
+      }
+      state.modal = modalContent
+    }
+    
   },
 
   addToWishlist(state, product) {
@@ -63,12 +96,13 @@ export const mutations = {
     console.log(state.modal);
   },
   checkStatus(state, user) {
-    if (user) {
-      state.user = user;
-      // this.$router.push('/profile')
-    } else {
-      this.$router.push('/')
-    }
+    state.user = user;
+    // if (user) {
+    //   state.user = user;
+    //   // this.$router.push('/profile')
+    // } else {
+    //   this.$router.push('/')
+    // }
   },
 
   searchInput(state, e) {
@@ -86,13 +120,25 @@ export const mutations = {
   },
 
   SignOut(state, auth) {
-    this.$fire.auth
-      .signOut()
-      .then(() => {
+    this.$fire.auth.signOut()
+      .then((response) => {
+        console.log(response);
+        // state.user = response
+        const modalContent = {
+          message: "Logged Out.",
+          description: "Account logged out successfully"
+        }
+        state.modal = modalContent
         console.log("LOGGED OUT")
+        this.$router.push("/")
       })
       .catch((error) => {
         console.log(error);
+        const modalContent = {
+          message: "An error occured",
+          description: `${error.message}`
+        }
+        state.modal = modalContent
       });
   },
 
@@ -272,6 +318,10 @@ export const actions = {
         commit("productsList", data.products);
       })
       .catch(error => console.log(error))
+  },
+
+  totalAmount({commit}, total) {
+    commit("totalAmount", total)
   },
 
   nextPageProducts({ state, commit }) {
