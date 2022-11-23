@@ -50,11 +50,11 @@ export default {
     }
   },
   created() {
-    fetch('http://ip-api.com/json')
+    fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_ZK89x7V16ZmKS0A0Kz41qO0eRPhv7')
     .then(response => response.json())
     .then((data) => {
       console.log(data);
-      const location = data.city + ', ' + data.country
+      const location = `${data.location.region}, ${data.location.country}`
       this.location = location
     })
     .catch(error => console.log(error))
