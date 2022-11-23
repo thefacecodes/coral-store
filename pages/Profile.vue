@@ -36,6 +36,8 @@ export default {
     if(!this.$store.state.user) {
       this.$router.push('/signin')
     }
+    console.log(this.$fire.storage);
+    console.log(this.$fireModule.storage);
   }
 
 }

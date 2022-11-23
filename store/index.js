@@ -48,8 +48,8 @@ export const mutations = {
                case(valid.type === "percentage") :
                state.discount = state.totalAmount * (valid.discount / 100)
                var modalContent = {
-                message: `Coupon code "${coupon}" applied`,
-                description: `${valid.discount}% has been deducted from your total.`
+                message: `${valid.discount}% discount coupon code "${coupon}" applied`,
+                description: `${valid.discount}% discount has been deducted from your cart total.`
               }
               state.modal = modalContent
               break;
@@ -57,7 +57,7 @@ export const mutations = {
               case(valid.type === "flat") :
               state.discount = valid.discount
               var modalContent = {
-               message: `Coupon code "${coupon}" applied`,
+               message: `Flat $${valid.discount} discount coupon code "${coupon}" applied`,
                description: `$${valid.discount} has been deducted from your total.`
              }
              state.modal = modalContent
@@ -115,14 +115,18 @@ export const mutations = {
     console.log(modalContent);
     console.log(state.modal);
   },
-  checkStatus(state, user) {
-    state.user = user;
-    // if (user) {
-    //   state.user = user;
-    //   // this.$router.push('/profile')
-    // } else {
-    //   this.$router.push('/')
-    // }
+
+  checkStatus(state) {
+    this.$fire.auth.onAuthStateChanged(user => {
+      if(user) {
+        state.user = user
+      } else {
+        state.user = null
+      }
+      console.log(user);
+      console.log(user.email);
+    })
+     
   },
 
   searchInput(state, e) {
@@ -150,7 +154,7 @@ export const mutations = {
         }
         state.modal = modalContent
         console.log("LOGGED OUT")
-        this.$router.push("/")
+        this.$router.push("/signin")
       })
       .catch((error) => {
         console.log(error);
@@ -189,6 +193,7 @@ export const mutations = {
         // const credential = this.$fireModule.auth.GoogleAuthProvider.credentialFromResult(result);
         // const token = credential.accessToken;
         // The signed-in user info.
+        console.log(result);
         const user = result.user;
         state.user = user;
         this.$router.push('/profile')
@@ -206,9 +211,9 @@ export const mutations = {
         const errorCode = error.code;
         const errorMessage = error.message;
         // The email of the user's account used.
-        const email = error.customData.email;
+        // const email = error.customData.email;
         // The AuthCredential type that was used.
-        state.user = null
+        // state.user = null
         // const credential = this.$fireModule.auth.GoogleAuthProvider.credentialFromError(error);
         console.log(errorMessage);
         const modalContent = {

@@ -3,6 +3,7 @@
   {
         "id": "store-1",
         "price": 39.49,
+        "discountPercentage": 75,
         "brand": "Grande",
         "image": "pink.png",
         "name": "Blossom Pouch",

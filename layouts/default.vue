@@ -14,17 +14,16 @@
 // Vue.component('paypal-checkout', PayPal)
 export default {
   created() {
-    this.$fire.auth.onAuthStateChanged(user => {
-     this.$store.commit('checkStatus', user)
-      console.log(user);
-  })
+   
   },
   beforeUpdate() {
+    this.$store.commit('checkStatus')
     const totalAmount = this.$store.getters.totalAmount
     console.log(totalAmount);
     this.$store.commit("totalPrice", totalAmount)
     return totalAmount  
     // console.log("TOTAL AMOUNT IS :", this.$store.state.totalAmount);
+    
   },
   computed: {
     

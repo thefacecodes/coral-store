@@ -44,7 +44,11 @@ nav {
 }
 
 .searchNicons .icons a {
-    @apply shadow px-4 py-3 md:shadow-none md:px-0 md:py-0 text-[#1B4B66]
+    @apply shadow px-4 py-3 relative md:shadow-none md:px-0 md:py-0 text-[#1B4B66]
+}
+
+.searchNicons .icons a span {
+    @apply absolute top-0 md:-top-2 right-0 md:-right-3 bg-[#1B4B66] text-white h-[20px] w-[20px] rounded-full text-[10px] flex justify-center items-center
 }
 
 .searchNicons form {
@@ -425,11 +429,11 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .details-section .prices h4 {
-    @apply text-[30px] lg:text-[40px] font-bold 
+    @apply text-[30px] lg:text-[40px] font-bold
 }
 
 .details-section .prices h5 {
-    @apply text-[26px] lg:text-[34px] font-semibold text-[#B6B6B6]
+    @apply text-[26px] lg:text-[34px] font-semibold text-[#B6B6B6] line-through
 }
 
 .details-section p.description {

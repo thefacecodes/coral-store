@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'my-app',
+    title: 'Coral Store - The Face',
     htmlAttrs: {
       lang: 'en'
     },

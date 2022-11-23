@@ -21,8 +21,8 @@
       <input type="search" autocomplete="off" name="search" :value="$store.state.searchInput" @keyup="(e) => $store.commit('searchInput', e)" id="search" placeholder="Search for products or brands.....">
     </form>
     <div class="icons">
-      <nuxt-link to="/wishlist"><i class="fa-regular fa-heart"></i></nuxt-link>
-      <nuxt-link to="/cart"><i class="fa-solid fa-bag-shopping"></i></nuxt-link>
+      <nuxt-link to="/wishlist"><i class="fa-regular fa-heart"></i><span>{{$store.state.wishlist.length}}</span></nuxt-link>
+      <nuxt-link to="/cart"><i class="fa-solid fa-bag-shopping"></i><span>{{$store.state.bag.length}}</span></nuxt-link>
       <nuxt-link to="/signin"><i class="fa-regular fa-user"></i></nuxt-link>
     </div>
  
