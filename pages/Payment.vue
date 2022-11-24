@@ -1,5 +1,5 @@
 <template>
-  <div class="payment">
+  <div class="payment" v-if="$store.state.details">
     <h1>Payment</h1>
     <div class="payment-details">
         <section class="pay">
@@ -24,7 +24,10 @@
         <section class="cart-details">
             <cart-summary />
         </section>
-    </div>
+    </div> 
+  </div>
+  <div v-else>
+    {{this.$router.push('/checkout')}}
   </div>
 </template>
 
