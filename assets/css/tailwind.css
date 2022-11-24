@@ -526,7 +526,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .cart-details .cart-summary  div img {
-    @apply h-[100px] w-auto
+    @apply h-[100px] w-[100px]
 }
 
 .signin {
@@ -573,8 +573,16 @@ table td .cart-item img, table td .cart-item div {
     @apply border-2 border-[#1B4B66] text-[#1B4B66] px-4 md:px-6 py-1 md:py-2 rounded text-[14px] font-medium
 }
 
+.profile h2 {
+    @apply text-[18px] text-[#1B4B66]
+}
+
+.profile p {
+    @apply font-medium
+}
+
 .profile form img {
-    @apply h-[200px] w-[200px] rounded-full my-4
+    @apply h-[100px] w-[100px] rounded-full my-4
 }
 
 .profile-container {

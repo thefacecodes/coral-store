@@ -1,5 +1,5 @@
 <template>
-  <div class="checkout">
+  <div class="checkout" v-if="$store.state.bag.length > 0">
     <h1>Checkout</h1>
     <div class="checkout-details">
       <section class="input">
@@ -63,7 +63,9 @@
     </section>
     </div>
     </div>
-    
+    <div v-else>
+      {{$router.push("/store")}}
+    </div>
 </template>
 
 <script>
