@@ -1,7 +1,7 @@
 <template>
   <div class="profile">
     <h2>Personal profile</h2>
-    <p>Welcome, {{$store.state.user.fullname ? $store.state.user.fullname : $store.state.user.email}}</p>
+    <p>Welcome, {{$store.state.user.displayName ? $store.state.user.displayName : $store.state.user.email}}</p>
     <form>
       <img :src="$store.state.user.photoURL ? $store.state.user.photoURL : 'https://onlineforexmaster.com/wp-content/uploads/2016/04/User-Avatar-1-300x278.png'" alt="">
       <label for="fullname">Full Name</label>
