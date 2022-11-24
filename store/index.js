@@ -3,6 +3,7 @@ import products from "../assets/products.json";
 export const state = () => ({
   bag: [],
   wishlist: [],
+  details: null,
   skip: 0,
   limit: 20,
   searchInput: "",
@@ -34,6 +35,19 @@ export const mutations = {
   totalPrice(state, total) {
     state.totalAmount = total.toFixed(2)
     console.log(state.totalAmount);
+  },
+
+  saveDetails(state, details) {
+    if(details.fullname && details.street && details.phoneNumber && details.pin && details.state && details.city) {
+    state.details = details
+    } else {
+      const modalContent = {
+        message: "Empty field(s).",
+        description: "Please fill the input fields"
+      }
+      state.modal = modalContent
+    }
+
   },
 
   applyCoupon(state, coupon) {
@@ -391,7 +405,7 @@ export const actions = {
               .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
-                commit("createAccountSuccess", account);
+                commit("createAccountSuccess", user);
               })
               .catch((error) => {
                 const errorCode = error.code;

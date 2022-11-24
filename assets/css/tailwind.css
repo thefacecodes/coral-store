@@ -317,19 +317,19 @@ table td .cart-item img, table td .cart-item div {
     @apply w-full lg:w-2/5
 }
 
-.cart .order div {
+.cart .order div, .cart-details .order div {
     @apply flex justify-between gap-2 items-center my-4 p-2
 }
 
-.cart .order div button {
+.cart .order div button, .cart-details .order div button {
     @apply w-1/2 lg:w-[45%] py-2 text-[14px] md:text-[18px] rounded border-2 border-[#1B4B66] font-semibold
 }
 
-.cart .order h2, .cart .order div h3 {
+.cart .order h2, .cart .order div h3, .cart-details .order div h2, .cart-details .order div h3 {
     @apply font-semibold
 }
 
-.cart .order h2 {
+.cart .order h2, .cart-details .order h2, .cart-summary h2 {
     @apply shadow p-2
 }
 
@@ -354,7 +354,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .empty img {
-    @apply w-auto h-[60vh] md:h-[70vh]
+    @apply w-auto h-[50vh] md:h-[70vh]
 }
 
 .empty h1 {
@@ -470,11 +470,63 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .checkout {
-    @apply p-8
+    @apply p-4 md:p-8
 }
 
 .checkout h1 {
-    @apply text-[34px] text-[#1B4B66]
+    @apply text-[34px] text-[#1B4B66] font-semibold
+}
+
+.checkout .checkout-details, .payment .payment-details {
+    @apply flex gap-8 flex-col-reverse md:flex-row
+}
+
+.checkout section.input {
+    @apply w-full md:w-1/2
+}
+
+.checkout form {
+    @apply w-full mt-6
+}
+
+.checkout h2 {
+    @apply text-[20px]
+}
+
+.checkout .addressForm, .pay .addressForm {
+    @apply my-4 border-b-2 py-2 w-full flex justify-between items-center
+}
+
+.checkout form .forminput {
+    @apply bg-[#F1F1F1] rounded h-[50px] px-2 my-2
+}
+
+.checkout form .forminput input {
+    @apply bg-none bg-transparent outline-none h-full w-full
+}
+
+.checkout form .buttons {
+    @apply flex justify-between items-center mt-8
+}
+
+.checkout form button {
+    @apply px-8 py-2 bg-[#1B4B66] text-white rounded
+}
+
+.checkout .cart-details, .payment .cart-details {
+    @apply w-full md:w-1/2
+}
+
+.cart-details .cart-summary {
+    @apply mb-6
+}
+
+.cart-details .cart-summary .cart-list {
+    @apply flex gap-2 mt-2 items-center
+}
+
+.cart-details .cart-summary  div img {
+    @apply h-[100px] w-auto
 }
 
 .signin {
@@ -563,4 +615,16 @@ table td .cart-item img, table td .cart-item div {
 
 .wishlist-item div button {
     @apply px-4 py-2 rounded shadow mt-1 md:mt-2 text-[12px] lg:text-[18px] font-medium
+}
+
+.payment {
+    @apply p-4 md:p-8
+}
+
+.payment h1 {
+    @apply text-[34px] mb-4 font-semibold
+}
+
+section.pay {
+    @apply w-full md:w-1/2
 }
