@@ -298,7 +298,7 @@ table tr td:first-child {
 }
 
 table td .cart-item {
-    @apply w-full flex gap-2 items-center
+    @apply w-full flex flex-col lg:flex-row gap-2 items-center
 }
 
 table td .cart-item h4 {
@@ -306,7 +306,7 @@ table td .cart-item h4 {
 }
 
 table td .cart-item img, table td .cart-item div {
-    @apply w-1/2
+    @apply w-full lg:w-1/2
 }
 
 .cart .container {
@@ -610,7 +610,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .wishlist-item img {
-    @apply w-auto h-[180px] lg:h-[250px]
+    @apply w-[180px] lg:w-auto h-[180px] lg:h-[250px]
 }
 
 .wishlist-item div h2 {
