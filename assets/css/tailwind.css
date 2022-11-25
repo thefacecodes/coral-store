@@ -251,11 +251,11 @@ p.location {
 }
 
 .store .pagination {
-    @apply mt-12 flex gap-4 md:gap-8 justify-center items-center
+    @apply mt-12 flex gap-2 md:gap-4 lg:gap-8 justify-center items-center
 }
 
 .store .pagination button {
-    @apply py-4 px-8 text-white bg-[#1B4B66]
+    @apply py-2 lg:py-4 px-4 lg:px-8 text-[12px] lg:text-base text-white bg-[#1B4B66]
 }
 
 .store .pagination button:first-child {
@@ -350,11 +350,15 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .empty {
-    @apply flex flex-col justify-center items-center py-8 text-[#1B4B66]
+    @apply w-full border-2 flex flex-col justify-center items-center py-8 text-[#1B4B66]
 }
 
 .empty img {
     @apply w-auto h-[50vh] md:h-[70vh]
+}
+
+.content {
+    @apply w-full lg:w-3/4
 }
 
 .empty h1 {
@@ -402,11 +406,11 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .loading img {
-    @apply w-[150px]
+    @apply lg:w-[150px]
 }
 
 .loading h2 {
-    @apply mt-4 text-[20px] text-[#1B4B66] tracking-[20px]
+    @apply mt-4 text-[14px] lg:text-[20px] text-[#1B4B66] tracking-[10px] lg:tracking-[20px]
 }
 
 .image-section .image-slider::-webkit-scrollbar {
@@ -616,7 +620,11 @@ table td .cart-item img, table td .cart-item div {
     @apply p-4 lg:p-8
 }
 
-.wishlist h1 {
+.myWishlist {
+    @apply p-2 lg:p-4
+}
+
+.wishlist h1, .myWishlist h1 {
     @apply text-[22px] lg:text-[34px] font-semibold mb-4
 }
 
@@ -654,4 +662,16 @@ table td .cart-item img, table td .cart-item div {
 
 section.pay {
     @apply w-full md:w-1/2
+}
+
+.profileCart {
+    @apply w-full p-0 m-0
+}
+
+.profileCart .cart {
+    @apply p-0 m-0
+}
+
+.profileCart table td:first-child {
+    @apply w-2/5
 }
