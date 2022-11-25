@@ -36,7 +36,7 @@
           <img src="~/assets/images/youtube.png" alt="">  
         </section>
         
-        <p class="location"><img src="~/assets/images/location.png" alt=""> {{location ? location : "United States"}}</p>
+        <p class="location"><img src="~/assets/images/location.png" alt=""> United States</p>
         <p>&copy; 2022 | Cora Leviene All Rights Reserved <br /> - Powered by The Face</p>
     </div>
   </footer>
@@ -44,21 +44,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      location: ""
-    }
-  },
-  created() {
-    fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_ZK89x7V16ZmKS0A0Kz41qO0eRPhv7')
-    .then(response => response.json())
-    .then((data) => {
-      console.log(data);
-      const location = `${data.location.region}, ${data.location.country}`
-      this.location = location
-    })
-    .catch(error => console.log(error))
-  }
 
 }
 </script>
