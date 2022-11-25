@@ -1,6 +1,7 @@
 <template>
-    <div class="product-details">
+    <div class="product-details" v-if="product">
          <h1>Product details</h1>
+         <button class="back" @click="$router.go(-1)">Go back</button>
          <div class="each-product">
             <div class="image-section">
                 <img class="thumbnail" :src="product.image ? require(`~/assets/images/${product.image}`) : product.thumbnail" alt="">
@@ -34,6 +35,10 @@
          
          
     </div>
+    <div v-else class="loading">
+        <img src="/logo.png" alt="">
+        <h2>LOADING</h2>
+    </div>
  
 
 </template>
@@ -49,7 +54,7 @@ export default {
     },
     data() {
         return {
-            product: {},
+            product: null,
             quantity: 1
         }
     },
