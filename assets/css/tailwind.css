@@ -350,7 +350,7 @@ table td .cart-item img, table td .cart-item div {
 }
 
 .empty {
-    @apply w-full border-2 flex flex-col justify-center items-center py-8 text-[#1B4B66]
+    @apply w-full flex flex-col justify-center items-center py-8 text-[#1B4B66]
 }
 
 .empty img {
